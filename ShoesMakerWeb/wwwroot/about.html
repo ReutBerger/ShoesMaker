@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--/* cart icon*/-->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!--/* heart icon*/-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">-->
     <style>
         * {
             box-sizing: border-box;
@@ -20,7 +23,7 @@
         /* top image background */
         .topBackground {
             /* The image used */
-            background-image: url("topBackground.png");
+            background-image: url("b.jpg");
             /* Full height */
             height: 70%;
             /* Center and scale the image nicely */
@@ -47,45 +50,24 @@
             text-align: center;
         }
 
-
-        /*#navbar {
-            overflow: hidden;
-            background-color: none;
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }*/
-
-        /*#navbar a {
-                float: left;
-                display: block;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }*/
-
         .container {
-            /*background-color: lightblue;*/
-            padding: 75px 175px 75px 175px;
+            background-color: #f2f2f2;
+            /*background-color: papayawhip;*/
+            padding: 100px 200px 100px 200px;
         }
+
 
         /* Create two equal columns that floats next to each other */
         .column {
             /*margin: 0 0 25px 0;*/
-            border: 1px solid black;
+            /*border: 1px solid black;*/
             float: left;
             width: 50%;
-            padding: 10px;
-            height: 300px;
+            /*padding: 10px;*/
+            height: 327px;
         }
 
-        .column-space {
-            width: 2%;
-            margin: 0 0 20px 0;
-            float: left;
-        }
+
         /* Clear floats after the columns */
         .row:after {
             content: "";
@@ -93,22 +75,6 @@
             clear: both;
         }
 
-        /*b {
-            padding: 5px;
-            display: inline-block;
-            border: 1px solid #f2f2f2;
-        }
-
-            b img {
-                width: 130px;
-                height: 130px;
-                display: block;
-            }
-
-            b:hover img {
-                transform: scale(0.9);
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            }*/
 
         /*---------------*/
         ul {
@@ -129,6 +95,8 @@
                     color: white;
                     padding: 8px 30px;
                     margin: 0 400px 0 0;
+                    font-size: 24px;
+                    font-weight: bold;
                 }
 
                 ul li a {
@@ -136,6 +104,7 @@
                     padding: 8px 25px;
                     color: darkgreen; /*text color*/
                     text-decoration: none;
+                    font-size: 20px;
                 }
 
                     ul li a:hover {
@@ -188,16 +157,26 @@
             font-size: 18px;
             border: none;
             outline: none;
-            background-color: red;
+            background-color: black;
             color: white;
             cursor: pointer;
             padding: 15px;
-            border-radius: 4px;
+            border-radius: 27px;
         }
 
             #getToTopBtn:hover {
                 background-color: #555;
             }
+
+        /*---------------------------*/
+
+
+        /* Footer */
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background-color: #E4A16A;
+        }
     </style>
     <title>
 
@@ -212,32 +191,44 @@
                 <li><a class="active" href="index.html">REN Shoes</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="shop.html">Shop &#9662;</a>
+                    <a href="#">Shop &#9662;</a>
                     <ul class="dropdown">
-                        <li><a href="#">Boots</a></li>
-                        <li><a href="#">Sandals</a></li>
-                        <li><a href="#">Shoes</a></li>
-                        <li><a href="#">Slippers</a></li>
+                        <li><a href="Shop/boots.html">Boots</a></li>
+                        <li><a href="Shop/sandals.html">Sandals</a></li>
+                        <li><a href="Shop/shoes.html">Shoes</a></li>
+                        <li><a href="Shop/slippers.html">Slippers</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="javascript:void(0)">Contact</a></li>
-                <li style="float:right"><a href="javascript:void(0)"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
-                <li style="float:right"><a href="javascript:void(0)"><span><i class='far fa-heart' style='font-size: 20px'></i></span></a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li style="float:right"><a href="#"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
+                <li style="float:right"><a href="#"><span><i class='far fa-heart' style='font-size: 20px'></i></span></a></li>
             </ul>
         </div>
-        <div class="bg-text">NER</div>
+        <div class="bg-text">REN</div>
     </div>
 
-    <h1> About page!!!!!!!!!!!!</h1>
+    <h1> about page</h1>
 
-    <button onclick="topFunction()" id="getToTopBtn" title="Go to top">Top</button>
+    <h1> about page</h1>
+
+    <h1> about page</h1>
+
+    <h1> about page</h1>
+
+    <h1> about page</h1>
+
+    <div class="footer">
+        <!--<h2>Footer</h2>-->
+        <hr />
+        <p>Copyright © 2021 All rights reserved | This web is made with <span><i class='far fa-heart' style='font-size: 16px;color:red'></i></span> by REN</p>
+    </div>
+    <button onclick="topFunction()" id="getToTopBtn" title="Go to top">Top<!--&#9650;--></button>
 
 </body>
 </html>
 
 
-<!--sticky navbar-->
 <script>
     //window.onscroll = function () { myFunction() };
 
@@ -252,8 +243,6 @@
         }
     }
 </script>
-
-
 
 <!--go to top button-->
 <script>
