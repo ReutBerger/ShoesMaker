@@ -99,17 +99,6 @@
             clear: both;
         }
 
-        /*b {
-            padding: 5px;
-            display: inline-block;
-            border: 1px solid #f2f2f2;
-        }*/
-
-        /*img {
-                width: 130px;
-                height: 130px;
-                display: block;
-            }*/
 
         img:hover {
             transform: scale(0.9);
@@ -246,9 +235,25 @@
             text-align: center;
             background-color: #C8D5C5;
         }
+
+
+
+        /*---------------------------*/
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: 8px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            font-size: 10px;
+            visibility: hidden;
+        }
+
     </style>
     <title>
-
+        REN shoes
     </title>
 </head>
 <body>
@@ -257,7 +262,7 @@
         <br />
         <div id="navbar">
             <ul>
-                <li><a class="active" href="index.html">REN Shoes</a></li>
+                <li><a class="active" id="homePage" href="index.html">REN Shoes</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="#">Shop &#9662;</a>
@@ -270,8 +275,18 @@
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li style="float:right"><a href="#"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
-                <li style="float:right"><a href="#"><span><i class='far fa-heart' style='font-size: 20px'></i></span></a></li>
+                <li style="float:right">
+                    <a href="#">
+                        <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
+                        <span class="badge" id="cart">2</span>
+                    </a>
+                </li>
+                <li style="float:right">
+                    <a href="#">
+                        <span><i class='far fa-heart' style='font-size: 20px'></i></span>
+                        <span class="badge" id="wishlist" style="right: 5px;">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="bg-text">REN</div>
@@ -427,18 +442,7 @@
     <li style="float:right"><a href="javascript:void(0)"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
     <li style="float:right"><a href="javascript:void(0)"><span><i class='far fa-heart' style='font-size:20px'></i></span></a></li>
 </ul>-->
-<!--<div class="content">
-        <h3>Sticky Navigation Example</h3>
-        <p>The navbar will stick to the top when you reach its scroll position.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-    </div>-->
+
 <!--sticky navbar-->
 <script>
     //window.onscroll = function () { myFunction() };
@@ -493,6 +497,38 @@
 </script>-->
 <!--top right down left-->
 <!--&#x2661; - heart rek-->
+
+<script>
+    let wishlist = [];
+    window.onload = loadFunc();
+
+    function wishlistNotification() {
+        var heart = document.getElementById("wishlist");
+        sizeOfWishlist = wishlist.length - 1;
+        if (sizeOfWishlist > 0) {
+            heart.style.visibility = "visible";
+            heart.innerText = sizeOfWishlist;
+        } else {
+            heart.style.visibility = "hidden";
+        }
+    }
+
+    function loadFunc() {
+        wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
+        //if (wishlist == null) {
+        //    // list  not exsits - create one. TODO
+        //    //document.cookie = "list=" + wishlist;
+        //} else {
+            // list exsits.
+            //alert("bott");
+        document.cookie = "list=" + wishlist;
+        //}
+        
+        //alert(document.cookie);
+        wishlistNotification();
+    }
+    
+</script>
 
 
 <!--<!DOCTYPE html>

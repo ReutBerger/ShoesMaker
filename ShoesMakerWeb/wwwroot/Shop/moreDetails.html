@@ -1,17 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--/* cart icon*/-->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!--/* heart icon*/-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">-->
     <!--<script src="../global.js"></script>-->
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -54,13 +53,6 @@
             text-align: center;
         }
 
-        /*---------------------------*/
-
-        .container {
-            background-color: #f2f2f2;
-            /*background-color: papayawhip;*/
-            padding: 100px 200px 100px 200px;
-        }
 
         /*---------------*/
 
@@ -128,30 +120,6 @@
 
         /*---------------------------*/
 
-        #getToTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: black;
-            color: white;
-            cursor: pointer;
-            height: 55px;
-            width: 55px;
-            border-radius: 50%;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-            #getToTopBtn:hover {
-                background-color: #555;
-            }
-
-        /*---------------------------*/
-
         /* Footer */
         .footer {
             padding: 30px;
@@ -159,126 +127,36 @@
             background-color: #C8D5C5;
         }
 
-        /*---------------------------*/
-
-        /* SELECT - order by */
-
-        /*the container must be positioned relative:*/
-        .order-select {
-            position: relative;
-            font-family: Arial;
-            float: right;
-            width: 160px;
-        }
-
-            .order-select select {
-                display: none; /*hide original SELECT element:*/
-            }
-
-        .select-selected {
-            background-color: #777;
-            /*border-radius: 5px 5px 5px 5px;*/
-            color: #ffffff;
-            padding: 8px 16px;
-            /*border: 1px solid black;*/
-            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-            cursor: pointer;
-            user-select: none;
-        }
-
-            /*style the arrow inside the select element:*/
-            .select-selected:after {
-                position: absolute;
-                content: "";
-                top: 16px;
-                right: 10px;
-                width: 0;
-                height: 0;
-                border: 6px solid transparent;
-                border-color: #fff transparent transparent transparent;
-            }
-
-            /*point the arrow upwards when the select box is open (active):*/
-            .select-selected.select-arrow-active:after {
-                border-color: transparent transparent #fff transparent;
-                top: 9px;
-            }
-
-        /*style the items (options), including the selected item:*/
-        .select-items div {
-            color: black;
-            padding: 8px 16px;
-            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        /*style items (options):*/
-        .select-items {
-            position: absolute;
-            background-color: #eee;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 99;
-        }
-
-        /*hide the items when the select box is closed:*/
-        .select-hide {
-            display: none;
-        }
-
-        .select-items div:hover, .same-as-selected {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
 
         /*---------------------------*/
-
-        .containerShop {
-            /* DELETE || padding */
-            /*background-color: skyblue;*/
-        }
 
         /* Create three unequal columns that floats next to each other */
         .column {
             float: left;
-            /*height: 600px;*/ /* Should be removed. Only for demonstration */
+            /*height: 500px;*/ /* Should be removed. Only for demonstration */
             text-align: left;
             /*background-color: #ccc;*/
         }
 
-        .left {
-            width: 20%;
-            padding: 10px;
-            /*background-color: lightgrey;*/
+        .details {
+            width: 45%;
+            /*padding: 10px;*/
+            padding: 10px 0 10px 50px;
+            /*background-color: lightskyblue;*/
+            /*border-radius: 50%;
+            border: 4px double green;*/
+            height: 500px;
+        }
+
+        .image {
+            width: 55%;
+            /*padding: 10px;*/
+            background-color: white;
+            padding: 100px 130px 100px 130px;
             /*border-radius: 50%;
             border: 4px double green;*/
         }
 
-        .right {
-            width: 70%;
-            padding: 10px;
-            /*background-color: rosybrown;*/
-        }
-
-        .sides {
-            padding: 10px;
-            width: 5%;
-            /*background-color: skyblue;*/
-        }
-
-        .select {
-            width: 16%;
-            float: right;
-            /*background-color:yellow;*/
-            margin-bottom: 10px;
-        }
-
-        .numD {
-            width: 10%; /* maybe smaller */
-            float: right;
-            margin-bottom: 10px;
-        }
 
         /* Clear floats after the columns */
         .row:after {
@@ -287,320 +165,128 @@
             clear: both;
         }
 
+        .rowAmountStyle {
+            background-color: white;
+            align-items: center;
+            padding: 5px 10px 5px 10px;
+            border-radius: 15px;
+            width: 27%;
+        }
+
+        .amount {
+            padding: 0 5px 0 5px;
+        }
+
+        .cart {
+            width: 50%;
+        }
 
         /*---------------------------*/
-
-
-        /*---------------------------*/
-
-        /* Filter options */
-
-        .accordion {
-            background-color: #eee;
-            color: #444; /* text color*/
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: 0.4s;
-            border-bottom: 1px solid #847e7e;
+        .containerDetailes {
+            padding: 50px 160px 100px 160px;
         }
-
-            .active1, .accordion:hover {
-                background-color: #ccc;
-            }
-
-            .accordion:after {
-                content: '\002B';
-                color: #777;
-                font-weight: bold;
-                float: right;
-                margin-left: 5px;
-            }
-
-        .active1:after {
-            content: '\2212';
-        }
-
-        .panel {
-            padding: 0 18px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
-
-        .category {
-            background-color: white;
-        }
-
-            .category li {
-                display: block;
-                /*position: center;*/
-                line-height: 21px;
-                text-align: left;
-            }
-
-                .category li a {
-                    display: block;
-                    padding: 8px 15px;
-                    color: black; /*text color*/
-                    text-decoration: none;
-                    font-size: 20px;
-                }
-
-                    .category li a:hover {
-                        border-radius: 40px 40px 40px 40px;
-                        color: white;
-                        background: #939393;
-                    }
-
-
-        /*---------------------------*/
-
-        .ima {
-            width: 25%;
-            padding: 10px;
-            background-color: white;
-            /*padding: 20px 10px 100px 10px;*/
-            /*max-width: 150%;*/
-            /*height: 335px;*/
-        }
-
-        .item {
-            border: 1px solid black;
-            /*padding: 40px 0px 70px 0px;*/
-            padding: 10px 0px 40px 0px;
-            background-color: white;
-            /*height: 30%;*/
-            position: relative;
-            cursor: pointer;
-        }
-
-            .item:hover {
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                background: rgba(0, 0, 0, .1);
-                /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);*/
-                /*filter: blur(1px);
-                -webkit-filter: blur(1px);*/
-            }
 
         img {
             width: 100%;
             height: auto;
+            cursor: zoom-in;
         }
 
-        .item:hover img {
-            transform: scale(0.9);
-            filter: brightness(90%);
+        .image:hover img {
+            transform: scale(1.5);
         }
 
-        /*.item:hover p {
-            color: #E5E5E5;
-        }*/
+        /*---------------------------*/
 
-        .item:hover button {
-            background-color: #e5e5e5;
-        }
-
-
-        .mybuttonoverlap {
-            position: absolute;
-            z-index: 2;
-            top: 80%;
-            display: none;
-            left: 5%;
-            height: 10%;
-            width: 40%;
-            background-color: white;
-            border-radius: 40px;
-        }
-
-        .item:hover .mybuttonoverlap {
-            display: block;
-        }
-
-        .price {
-            /*background-color: white;*/
+        .dot {
+            height: 30px;
+            width: 30px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
             text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 0;
-            padding-top: 30px;
-            /*transform: translate(25%, 50%);*/
+            padding-top: 5px;
+            cursor: pointer;
         }
 
-        /* ***********   */
-
-        .wishlistBtn {
-            border: none;
-            color: black;
-            background-color: white;
-            /*background-image: url("like2.png");*/
-            font-size: 40px;
-            padding: 0 0 0 10px;
-            margin: 0;
-        }
-
-            .wishlistbtn:hover {
-                /*background-color: #e5e5e5;
-                /*background-image: url(like2.png);*/
+            .dot:hover {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                background-color: lightblue;
             }
 
+        /*---------------------------*/
+
+        .sizeBtn {
+            font-size: 18px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            padding: 0;
+            margin: 2px 0px 2px 0px;
+            cursor: pointer;
+            /*border-radius: 10px 0 0 10px;*/
+            /*background-color: white;
+            border: none;*/
+        }
+
+        .num {
+            font-size: 21px;
+            margin: 0;
+            /*padding: 2px 10px 5px 10px;*/
+            padding: 2px 10px 2px 10px;
+            text-align: center;
+            background-color: lightblue;
+            border-radius: 20px;
+        }
+        /*--------------------------------*/
+
+        .addToCartBtn {
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 30px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+            .addToCartBtn:hover {
+                background-color: lightblue;
+                color: black;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+        /*---------------------------------*/
+
+        .addToWishBtn {
+            border: 1px solid black;
+            /*margin-top:10px;*/
+            border-radius: 50%;
+            font-size: 40px;
+            background-color: white;
+            margin-left: 40%;
+            height: 45px;
+            width: 45px;
+            /**/
+            color: black;
+            padding: 4px 0 0 9px;
+            /*margin: 0;*/
+        }
+
+            .addToWishBtn:hover {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+        /*---------------------------*/
         .wishlistBtnImg {
             margin: 0;
-            width: 28px;
-            height: 28px;
+            width: 25px;
+            height: 25px;
             float: left;
             cursor: pointer;
         }
 
-
-        /*--------------------------------*/
-        /**************   Slider    *************/
-
-
-        .slider {
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            /*justify-content: center;*/
-            min-height: 60px; /* height of slider whith open */
-            flex-direction: column;
-        }
-
-        :root {
-            --clr-prim: #1B984D; /* The color of the range that we choose!! */
-            /*--clr-prim-h: #178242;
-            --clr-bad: #D91E18;
-            --clr-box: #F9F9F9;*/
-            --clr-box-dark: #f2f2f2; /* COLOR of range we dont want */
-            /*--clr-border: #D9D9D9;
-            --txt-clr: #333333;*/
-            --shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
-            /*--cubic: cubic-bezier(0.11, 0.54, 0.33, 1.01);*/
-        }
-
-        .dual-range {
-            --range-size: 10px; /* height of slider */
-            --range-width: 210px; /* width of the slider */
-            --handle-size: 1.3;
-            height: var(--range-size);
-            width: var(--range-width);
-            background: var(--clr-box-dark);
-            border-radius: 50px;
-            position: relative;
-            user-select: none;
-        }
-
-            .dual-range::before {
-                display: inline-block;
-                content: "10";
-                font-size: 10px;
-                margin-left: -30px;
-                float: left;
-            }
-
-            .dual-range::after {
-                display: inline-block;
-                content: "200";
-                font-size: 10px;
-                margin-right: -30px;
-                float: right;
-            }
-
-        .highlight {
-            position: absolute;
-            height: var(--range-size);
-            width: calc(calc(var(--x-2) - var(--x-1)) + calc(var(--range-size) * var(--handle-size)));
-            left: var(--x-1);
-            background: var(--clr-prim);
-            z-index: 1;
-            border-radius: 50px;
-        }
-
-        .handle {
-            width: calc(var(--range-size) * var(--handle-size));
-            height: calc(var(--range-size) * var(--handle-size));
-            background: #C8D5C5; /* COLOR OF CIRCLES */
-            position: absolute;
-            box-shadow: var(--shadow);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            cursor: grab;
-        }
-
-            .handle:active {
-                cursor: grabbing;
-            }
-
-            .handle.left {
-                left: var(--x-1);
-            }
-
-            .handle.right {
-                left: var(--x-2);
-            }
-
-            /* The numbers of the choosen range*/
-            .handle.left::after {
-                content: attr(data-value)'$';
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                color: black;
-            }
-
-            .handle.right::after {
-                content: attr(data-value)'$';
-                position: absolute;
-                top: -100%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-
-        /*---------------------------------*/
-
-
-        .center {
-            text-align: center;
-        }
-
-        .pagination {
-            display: inline-block;
-        }
-
-            .pagination a {
-                color: black;
-                float: left;
-                padding: 8px 16px;
-                text-decoration: none;
-                background-color: white;
-                transition: background-color .4s;
-                border: 1px solid #ddd;
-                margin: 0 4px;
-            }
-
-                .pagination a.active {
-                    background-color: #1B984D;
-                    color: white;
-                    border: 1px solid #1B984D;
-                    cursor: not-allowed;
-                }
-
-                .pagination a:hover:not(.active) {
-                    background-color: #ddd;
-                }
-
-        /*-----------------------------------------*/
-
+        /*---------------------------*/
 
         .badge {
             position: absolute;
@@ -617,299 +303,144 @@
     <title></title>
 </head>
 <body>
-    <div class="topBackground">
-        <br />
-        <br />
-        <div id="navbar">
-            <ul>
-                <li><a class="active" href="../index.html">REN Shoes</a></li>
-                <li><a href="../index.html">Home</a></li>
-                <li>
-                    <a href="#">Shop &#9662;</a>
-                    <ul class="dropdown">
-                        <li><a href="../Shop/boots.html">Boots</a></li>
-                        <li><a href="../Shop/sandals.html">Sandals</a></li>
-                        <li><a href="../Shop/shoes.html">Shoes</a></li>
-                        <li><a href="../Shop/slippers.html">Slippers</a></li>
-                    </ul>
-                </li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li style="float:right">
-                    <a href="#">
-                        <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
-                        <span class="badge" id="cart">2</span>
-                    </a>
-                </li>
-                <li style="float:right">
-                    <a href="#">
-                        <span><i class='far fa-heart' style='font-size: 20px'></i></span>
-                        <span class="badge" id="wishlist" style="right: 5px;">0</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="bg-text">REN</div>
+    <div id="navbar">
+        <ul>
+            <li><a class="active" href="../index.html">REN Shoes</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+                <a href="#">Shop &#9662;</a>
+                <ul class="dropdown">
+                    <li><a href="../Shop/boots.html">Boots</a></li>
+                    <li><a href="../Shop/sandals.html">Sandals</a></li>
+                    <li><a href="../Shop/shoes.html">Shoes</a></li>
+                    <li><a href="../Shop/slippers.html">Slippers</a></li>
+                </ul>
+            </li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li style="float:right">
+                <a href="#">
+                    <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
+                    <span class="badge" id="cart">2</span>
+                </a>
+            </li>
+            <li style="float:right">
+                <a href="#">
+                    <span><i class='far fa-heart' style='font-size: 20px'></i></span>
+                    <span class="badge" id="wishlist" style="right: 5px;">0</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
-
-    <br />
-    <br />
-    <h1 style="text-align:center">BOOTS</h1>
-    <hr style="height:3px;width:20%;" />
-    <br />
-
-    <div class="containerShop">
+    <div class="containerDetailes">
         <div class="row">
-            <div class="column sides">
-                <br />
+
+            <div class="column image">
+                <img id="itemImage" src="goodSizeShoes.jpg">
             </div>
 
-            <div class="column left">
-                <button class="accordion">Category</button>
-                <div class="panel">
-                    <ul class="category">
-                        <li><a href="../Shop/boots.html">Boots</a></li>
-                        <li><a href="../Shop/sandals.html">Sandals</a></li>
-                        <li><a href="../Shop/shoes.html">Shoes</a></li>
-                        <li><a href="../Shop/slippers.html">Slippers</a></li>
-                    </ul>
+            <div class="column details">
+                <p id="category" style="font-size: 18px;">Category: Boots</p>
+                <p id="name" style="font-size: 20px;">-Item name-</p>
+                <h1 id="price" style="font-size: 30px;"> 22.99 $</h1>
+
+                <br />
+                <br />
+
+                <p>Select size:</p>
+                <div class="row" id="size">
+                    <span class="dot" onclick="selectedSize(id)" id="35">35</span>
+                    <span class="dot" onclick="selectedSize(id)" id="36">36</span>
+                    <span class="dot" onclick="selectedSize(id)" id="37">37</span>
+                    <span class="dot" onclick="selectedSize(id)" id="38">38</span>
+                    <span class="dot" onclick="selectedSize(id)" id="39">39</span>
+                    <span class="dot" onclick="selectedSize(id)" id="40">40</span>
+                    <span class="dot" onclick="selectedSize(id)" id="41">41</span>
+                    <span class="dot" onclick="selectedSize(id)" id="42">42</span>
                 </div>
 
-                <button class="accordion">Price</button>
-                <div class="panel">
-                    <p class="demo">Choose price range:</p>
+                <br />
 
-                    <div class="slider">
-                        <div class="dual-range" data-min="10" data-max="200">
-                            <span class="handle left"></span>
-                            <span class="highlight"></span>
-                            <span class="handle right"></span>
-                        </div>
+                <p>Chooes amount:</p>
+                <div class="row rowAmountStyle">
+                    <div class="column amount">
+                        <button onclick="decrease()" class="sizeBtn">-</button>
                     </div>
-                    <button onclick="filterPrice()" style="cursor: pointer; margin-bottom:10px; float:right; font-size:16px;">Filter</button>
+                    <div class="column amount">
+                        <p class="num" id="number"> 1 </p>
+                    </div>
+                    <div class="column amount">
+                        <button onclick="increase()" class="sizeBtn">+</button>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="row">
+                    <!--style="padding-right:10px;"-->
+                    <div class="column cart">
+                        <button class="addToCartBtn" onclick="addItemToCart()" title="Buy this item">Add to cart <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
+                    </div>
+                    <div class="column">
+                        <!--<button class="addToWishBtn" onclick="addWishlist()" onmouseover="changeBtn()">
+                            <img class="wishlistBtnImg" onclick="addToWishlist()" src="add.png" />
+                        </button>-->
+                        <button class="addToWishBtn" title="Add to wishlist">
+                            <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="itemWish" src="add.png" />
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="column right">
-                <div class="row">
-                    <div class="column select">
-                        <div class="order-select">
-                            <select>
-                                <option value="0">Order By</option>
-                                <option value="1">Low - high price</option>
-                                <option value="2">High - low price</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="column numD">
-                        <p style="margin:10px 0 0 0;">1239 Items </p>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot1">
-                            <button class="wishlistBtn">
-                                <!--&#9825;-->
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot1" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot1" src="goodSizeShoes.jpg" alt="boots">
-                            <!--button type="button" class="mybuttonoverlap btn btn-info">Read More</button>-->
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot2">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot2" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot2" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot3">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot3" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot3" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot4">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot4" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot4" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot11">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot11" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot11" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot21">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot21" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot21" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot31">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot31" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot31" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot41">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot41" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot41" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot111">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot111" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot111" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot211">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot211" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot211" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot311">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot311" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot311" src="goodSizeShoes.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                    <div class="column ima">
-                        <div class="item" onclick="showMoreDetailes(id)" id="boot411">
-                            <button class="wishlistBtn">
-                                <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlistboot411" src="add.png" />
-                            </button>
-                            <img id="imageSrcboot411" src="104730.1647.jpg" alt="boots">
-                            <p class="price">20.99 $</p>
-                        </div>
-                    </div>
-                </div>
-
-                <br />
-
-                <row>
-                    <div class="center">
-                        <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a class="active" href="../Shop/boots.html?pageNumber=1">1</a>
-                            <a href="../Shop/boots.html?pageNumber=2">2</a>
-                            <a href="../Shop/boots.html?pageNumber=3">3</a>
-                            <a href="../Shop/boots.html?pageNumber=4">4</a>
-                            <a href="../Shop/boots.html?pageNumber=5">&#133;</a>
-                            <a href="#">&raquo;</a>
-                        </div>
-                    </div>
-                </row>
-
-                <br />
-                <br />
-                <br />
-            </div>
-
-            <br />
-
-
-            <div class="column sides">
-                <br />
-            </div>
         </div>
     </div>
-
+    <script src="../global.js"></script>
     <div class="footer">
+        <!--<h2>Footer</h2>-->
         <hr />
         <p>Copyright © 2021 All rights reserved | This web is made with <span style='font-size: 16px;color:firebrick'>&#x2661;</span> by REN</p>
     </div>
-    <button onclick="topFunction()" id="getToTopBtn" title="Go to top">&#x1F851;</button>
+    <!--<button onclick="topFunction()" id="getToTopBtn" title="Go to top">&#x1F851;</button>-->
+    <script src="../global.js"></script>
+
 </body>
 </html>
 
+
+
+<!--get URL parameters  - loadFunc-->
 <script>
-    // Global var
-    let clickOnWishImg = false;
+    let itemID = "";
+    let count = 1;
+    let wishlist;
     let sizeOfWishlist = 0;
-    let wishlist = [];
+
     window.onload = loadFunc();
-
-
-    function loadFunc() {
-        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-        list = cookieValue.split(",");
-        // TODO: remove this lines!!!!!!!!!
-        //list = [];
-        //document.cookie = "list=" + list;
-        //alert(document.cookie);
-        //document.cookie = "bla=";
-        //document.cookie = "list=; expires=Wed, 05 Aug 2020 23:00:00 UTC";
-        wishlist = list.slice();
-        
-        wishlistNotification();
-        loadWishlist();
-
-
-        sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
-        //alert(wishlist);
-        ////wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
-
+    
+    function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
     }
 
-    function loadWishlist() {
-        for (var wish of wishlist) {
-            if (wish == "") {
-                continue;
-            }
-            var isIn = document.getElementById(wish);
-            isIn.src = "remove.png";
+    function isInWishlist(id) {
+        var pos = wishlist.indexOf(id);
+        if (pos >= 0) {
+            return true;
         }
-        
+        return false;
     }
 
     function wishlistNotification() {
         var heart = document.getElementById("wishlist");
-        sizeOfWishlist = wishlist.length - 1;
+        sizeOfWishlist = wishlist.length-1;
         if (sizeOfWishlist > 0) {
             heart.style.visibility = "visible";
             heart.innerText = sizeOfWishlist;
@@ -917,33 +448,58 @@
             heart.style.visibility = "hidden";
         }
     }
-</script>
 
+    /*function getUrlVars() {
+    //    var vars = {};
+    //    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+    //        vars[key] = value;
+    //    });
+    //    return vars;
+    }*/
 
-<!--more detailes button-->
-<script>
-    function showMoreDetailes(id) {
-        if (wishlist.length != 0) {
-            sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
-            document.cookie = "list=" + wishlist;
-            //var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-            //alert(cookieValue);
-            //var list = cookieValue.split(",");
+    //function getCookie(cName) {
+    //    const name = cName + "=";
+    //    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    //    const cArr = cDecoded.split('; ');
+    //    let res;
+    //    cArr.forEach(val => {
+    //        if (val.indexOf(name) === 0) res = val.substring(name.length);
+    //    })
+    //    return res;
+    //}
+
+    function loadFunc() {
+        //var list = getCookie(list)
+        alert(document.cookie);
+        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        var list = cookieValue.split(",");
+        //alert(list.length);
+        //////list.splice(1, 1);
+        alert(list);
+        wishlist = list.slice();
+        //wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
+        var name = document.getElementById("name");
+        var category = document.getElementById("category");
+        itemID = GetURLParameter("imageID");
+        name.innerText = "Product Name: " + itemID;
+        category.innerText = "Category: " + GetURLParameter("category");
+        if (isInWishlist("wishlist" + itemID)) {
+            var itemWish = document.getElementById("itemWish");
+            itemWish.src = "remove.png";
         }
-        //sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
-        if (!clickOnWishImg) {
-            //isIn = isInWishlist('wishlist' + id);
-            // Show more details of this "id" shoe.
-            var srcImage = document.getElementById("imageSrc" + id);
-            window.location.href = '../Shop/moreDetails.html?imageID=' + id + '&category=Boots&src=' + srcImage.src;
-        } else {
-            clickOnWishImg = false;
-        }
+        wishlistNotification();
+
+        var itemImage = document.getElementById("itemImage");
+        var str = GetURLParameter("src").split('/');
+        itemImage.src = str[str.length - 1];
     }
+
 </script>
+
 
 <!--herat button functionality-->
 <script>
+
     function delete_item(id) {
         for (var i = 0; i < wishlist.length; i++) {
             if (wishlist[i] == id)
@@ -953,26 +509,13 @@
     }
 
     function push_item(id) {
-        var bool = true;
         for (var i = 0; i < wishlist.length; i++) {
             if (wishlist[i] == id)
-                bool = false;
+                break;
         }
-        if (bool) {
-            wishlist.push(id);
-        }
+        wishlist.push(id);
     }
 
-    function wishlistNotification() {
-        var heart = document.getElementById("wishlist");
-        sizeOfWishlist = wishlist.length - 1;
-        if (sizeOfWishlist > 0) {
-            heart.style.visibility = "visible";
-            heart.innerText = sizeOfWishlist;
-        } else {
-            heart.style.visibility = "hidden";
-        }
-    }
 
     function addToWishlist(id) {
         clickOnWishImg = true;
@@ -980,20 +523,21 @@
         if (selectedItem.src.match("add.png")) {
             // If fill change to clear
             selectedItem.src = "remove.png";
-            //sizeOfWishlist++;
-            push_item(id);
+            selectedItem.parentElement.title = "Remove from wishlist";
+            push_item("wishlist" + itemID);
         } else {
             // If clear change to fill
             selectedItem.src = "add.png";
-            //sizeOfWishlist--;
-            delete_item(id);
+            selectedItem.parentElement.title = "Add to wishlist";
+            delete_item("wishlist" + itemID);
+            
         }
         selectedItem.style.width = "28px";
         selectedItem.style.height = "28px";
 
         sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
         document.cookie = "list=" + wishlist;
-
+        
         wishlistNotification();
     }
 </script>
@@ -1014,18 +558,22 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!--Shoe size style-->
+<script>
+    let idLastSelected = "";
+    function selectedSize(id) {
+        var button = document.getElementById(id);
+        button.style.backgroundColor = "lightblue";
+        button.style.border = "1px solid black";
+        var lastBtn = document.getElementById(idLastSelected);
+        if (lastBtn != null) {
+            lastBtn.style.backgroundColor = '#bbb';
+            lastBtn.style.border = "none";
+            lastBtn.style = "dot";
+        }
+        idLastSelected = id;
+    }
+</script>
 
 <!--navbar functionality-->
 <script>
@@ -1066,213 +614,35 @@
     }
 </script>
 
-
-<!--pagination-->
-<!--<script>
-    // Add active class to the current button (highlight it)
-    var header = document.getElementById("pagination");
-    var page = header.getElementsByClassName("a");
-    for (var i = 0; i < page.length; i++) {
-        page[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" active", "");
-            }
-            this.className += " active";
-        });
-    }
-</script>-->
-
-<!--Filter buttons-->
 <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active1");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
+    function addWishlist() {
+        //&#128153;
     }
+
 </script>
 
-<!--Select bar - Order by-->
+<!--calculate amount of item-->
 <script>
-    var x, i, j, l, ll, selElmnt, a, b, c;
-    /*look for any elements with the class "order-select":*/
-    x = document.getElementsByClassName("order-select");
-    l = x.length;
-    for (i = 0; i < l; i++) {
-        selElmnt = x[i].getElementsByTagName("select")[0];
-        ll = selElmnt.length;
-        /*for each element, create a new DIV that will act as the selected item:*/
-        a = document.createElement("DIV");
-        a.setAttribute("class", "select-selected");
-        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        x[i].appendChild(a);
-        /*for each element, create a new DIV that will contain the option list:*/
-        b = document.createElement("DIV");
-        b.setAttribute("class", "select-items select-hide");
-        for (j = 1; j < ll; j++) {
-            /*for each option in the original select element,
-            create a new DIV that will act as an option item:*/
-            c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function (e) {
-                /*when an item is clicked, update the original select box,
-                and the selected item:*/
-                var y, i, k, s, h, sl, yl;
-                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                alert("s is the selected order" + s);
-                sl = s.length;
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < sl; i++) {
-                    if (s.options[i].innerHTML == this.innerHTML) {
-                        s.selectedIndex = i;
-                        h.innerHTML = this.innerHTML;
-                        y = this.parentNode.getElementsByClassName("same-as-selected");
-                        yl = y.length;
-                        for (k = 0; k < yl; k++) {
-                            y[k].removeAttribute("class");
-                        }
-                        this.setAttribute("class", "same-as-selected");
-                        break;
-                    }
-                }
-                h.click();
-            });
-            b.appendChild(c);
-        }
-        x[i].appendChild(b);
-        a.addEventListener("click", function (e) {
-            /*when the select box is clicked, close any other select boxes,
-            and open/close the current select box:*/
-            e.stopPropagation();
-            closeAllSelect(this);
-            this.nextSibling.classList.toggle("select-hide");
-            this.classList.toggle("select-arrow-active");
-        });
-    }
-    function closeAllSelect(elmnt) {
-        /*a function that will close all select boxes in the document,
-        except the current select box:*/
-        var x, y, i, xl, yl, arrNo = [];
-        x = document.getElementsByClassName("select-items");
-        y = document.getElementsByClassName("select-selected");
-        xl = x.length;
-        yl = y.length;
-        for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-                arrNo.push(i)
-            } else {
-                y[i].classList.remove("select-arrow-active");
-            }
-        }
-        for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-                x[i].classList.add("select-hide");
-            }
+    function increase() {
+        count++;
+        document.getElementById("number").innerText = count;
+        if (count >= 9) {
+            document.getElementById("number").innerText = 9;
+            count = 9;
         }
     }
-    /*if the user clicks anywhere outside the select box,
-    then close all select boxes:*/
-    document.addEventListener("click", closeAllSelect);
+
+    function decrease() {
+        count--;
+        document.getElementById("number").innerText = count;
+        if (count <= 1) {
+            document.getElementById("number").innerText = 1;
+            count = 1;
+        }
+    }
+
 </script>
 
-<!--price range Slider-->
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        new dualRangeSlider(document.querySelector(".dual-range"))
-    })
-
-    class dualRangeSlider {
-        constructor(rangeElement) {
-            this.range = rangeElement
-            this.min = Number(rangeElement.dataset.min)
-            this.max = Number(rangeElement.dataset.max)
-            this.handles = [...this.range.querySelectorAll(".handle")]
-            this.startPos = 0;
-            this.activeHandle;
-
-            this.handles.forEach(handle => {
-                handle.addEventListener("mousedown", this.startMove.bind(this))
-                handle.addEventListener("touchstart", this.startMoveTouch.bind(this))
-            })
-
-            window.addEventListener("mouseup", this.stopMove.bind(this))
-            window.addEventListener("touchend", this.stopMove.bind(this))
-            window.addEventListener("touchcancel", this.stopMove.bind(this))
-            window.addEventListener("touchleave", this.stopMove.bind(this))
-
-            const rangeRect = this.range.getBoundingClientRect();
-            const handleRect = this.handles[0].getBoundingClientRect()
-            this.range.style.setProperty("--x-1", "0px");
-            this.range.style.setProperty("--x-2", rangeRect.width - handleRect.width / 2 + "px");
-            this.handles[0].dataset.value = this.range.dataset.min;
-            this.handles[1].dataset.value = this.range.dataset.max;
-        }
-
-        startMoveTouch(e) {
-            const handleRect = e.target.getBoundingClientRect()
-            this.startPos = e.touches[0].clientX - handleRect.x;
-            this.activeHandle = e.target;
-            this.moveTouchListener = this.moveTouch.bind(this)
-            window.addEventListener("touchmove", this.moveTouchListener);
-        }
-
-        startMove(e) {
-            this.startPos = e.offsetX;
-            this.activeHandle = e.target;
-            this.moveListener = this.move.bind(this)
-            window.addEventListener("mousemove", this.moveListener);
-        }
-
-        moveTouch(e) {
-            this.move({ clientX: e.touches[0].clientX })
-        }
-
-        move(e) {
-            const isLeft = this.activeHandle.classList.contains("left")
-            const property = isLeft ? "--x-1" : "--x-2";
-            const parentRect = this.range.getBoundingClientRect();
-            const handleRect = this.activeHandle.getBoundingClientRect();
-            let newX = e.clientX - parentRect.x - this.startPos;
-            if (isLeft) {
-                const otherX = parseInt(this.range.style.getPropertyValue("--x-2"));
-                newX = Math.min(newX, otherX - handleRect.width)
-                newX = Math.max(newX, 0 - handleRect.width / 2)
-            } else {
-                const otherX = parseInt(this.range.style.getPropertyValue("--x-1"));
-                newX = Math.max(newX, otherX + handleRect.width)
-                newX = Math.min(newX, parentRect.width - handleRect.width / 2)
-            }
-            this.activeHandle.dataset.value = this.calcHandleValue((newX + handleRect.width / 2) / parentRect.width)
-            this.range.style.setProperty(property, newX + "px");
-
-        }
-
-        calcHandleValue(percentage) {
-            return Math.round(percentage * (this.max - this.min) + this.min)
-        }
-
-        stopMove() {
-            window.removeEventListener("mousemove", this.moveListener);
-            window.removeEventListener("touchmove", this.moveTouchListener);
-        }
-    }
-</script>
-
-<!--submit filter price-->
-<script>
-    function filterPrice() {
-        alert("submit to server the selected range");
-    }
-</script>
 
 <!--<!DOCTYPE html>
 <html>
