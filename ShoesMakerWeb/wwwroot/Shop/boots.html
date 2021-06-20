@@ -642,7 +642,7 @@
                     </a>
                 </li>
                 <li style="float:right">
-                    <a href="#">
+                    <a href="../wishlist.html">
                         <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                         <span class="badge" id="wishlist" style="right: 5px;">0</span>
                     </a>
@@ -885,10 +885,9 @@
         //document.cookie = "bla=";
         //document.cookie = "list=; expires=Wed, 05 Aug 2020 23:00:00 UTC";
         wishlist = list.slice();
-        
+
         wishlistNotification();
         loadWishlist();
-
 
         sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
         //alert(wishlist);
@@ -898,7 +897,7 @@
 
     function loadWishlist() {
         for (var wish of wishlist) {
-            if (wish == "") {
+            if (wish == "" || wish == "null") {
                 continue;
             }
             var isIn = document.getElementById(wish);
