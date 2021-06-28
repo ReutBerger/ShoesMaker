@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+        body, html {
+            background-color: #f2f2f2;
+            /*margin-bottom: 50px;*/
+            height: 100%;
+        }
+
+        #pageTitle {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        /*---------------*/
+
+        #firstSubTitle {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        #secoundSubTitle {
+            padding-left: 0px;
+        }
+
+        #thirdSubTitle {
+            padding-left: 35px;
+        }
+
+        /*---------------*/
+
+        #cartLength {
+            background-color: gray;
+            border-radius: 50%;
+        }
+
+        #total {
+            font-weight: bold;
+            /*color: #1266F1;*/
+            color: forestgreen;
+        }
+
+        #totalPrice {
+            color: forestgreen;
+        }
+
+        /*-------------*/
+
+        /* Footer */
+        #footer {
+            padding: 30px;
+            text-align: center;
+            background-color: #C8D5C5;
+            bottom: 0;
+            margin-top: 80px;
+        }
+
+    </style>
+    <title></title>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!--Main layout-->
+    <main class="mt-5 pt-4">
+        <div class="container wow fadeIn">
+
+            <!-- TITLE -->
+            <h1 id="pageTitle" class="my-5 h1 text-center">Checkout</h1>
+
+            <div class="row">
+                <!--Grid LEFT column-->
+                <div class="col-md-8 mb-4">
+                    <!-- DETAILS Card-->
+                    <div class="card">
+                        <!-- Delivery Details title -->
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span id="firstSubTitle" class="text-muted">Your Delivery Details</span>
+                        </h4>
+                        <!-- FORM - Card content -->
+                        <form class="card-body">
+                            <!-- row 1 -->
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <!-- firstName -->
+                                    <div class="md-form ">
+                                        <label for="firstName" class="">First name</label>
+                                        <input type="text" id="firstName" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <!-- lastName -->
+                                    <div class="md-form">
+                                        <label for="lastName" class="">Last name</label>
+                                        <input type="text" id="lastName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <!-- row 2 -->
+                            <!-- email -->
+                            <div class="md-form mb-5">
+                                <label for="email" class="">Email</label>
+                                <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
+                            </div>
+
+                            <!-- row 3 -->
+                            <!-- address -->
+                            <div class="md-form mb-5">
+                                <label for="address" class="">Address</label>
+                                <input type="text" id="address" class="form-control" placeholder="1234 Main St">
+                            </div>
+
+                            <!-- address-2 -->
+                            <!--<div class="md-form mb-5">
+                                <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">
+                                <label for="address-2" class="">Address 2 (optional)</label>
+                            </div>-->
+                            <!-- row 4 -->
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 mb-4">
+                                    <!-- Country -->
+                                    <label for="country">Country</label>
+                                    <select class="custom-select d-block w-100" id="country" required>
+                                        <option value="">Choose...</option>
+                                        <option>Isarel</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid country.
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <!-- State -->
+                                    <label for="state">State</label>
+                                    <select class="custom-select d-block w-100" id="state" required>
+                                        <option value="">Choose...</option>
+                                        <option>Isarel</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <!-- zip -->
+                                    <label for="zip">Zip</label>
+                                    <input type="text" class="form-control" id="zip" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Zip code required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PAYMENT DETAILS -->
+                            <hr>
+                            <!-- Payment Details title -->
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span id="secoundSubTitle" class="text-muted">Your Payment Details</span>
+                            </h4>
+
+                            <!-- Payment options-->
+                            <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                                    <label class="custom-control-label" for="credit">Credit card</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="debit">Debit card</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="paypal">Paypal</label>
+                                </div>
+                            </div>
+
+                            <!-- row 1 -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- row 2 -->
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="mb-4">
+
+                            <!-- Submit details -->
+                            <button onclick="submitPayment()" class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!--Grid RIGHT column-->
+                <div class="col-md-4 mb-4">
+
+                    <!-- cart title -->
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span id="thirdSubTitle" class="text-muted">Your cart</span>
+                        <span id="cartLength" class="badge badge-secondary badge-pill">3</span>
+                    </h4>
+
+                    <!-- Cart 'table' -->
+                    <ul id="table">
+                      <!-- Add cart items to view -->
+                    </ul>
+                    <ul>
+                        <!-- Total -->
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span id="total">Total (USD)</span>
+                            <strong id="totalPrice">$00.00</strong>
+                        </li>
+                    </ul>
+
+                    <!-- Promo code -->
+                    <!--<form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+                            </div>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--Footer-->
+    <div id="footer">
+        <hr />
+        <p>Copyright © 2021 All rights reserved | This web is made with <span style=' font-size: 16px; color: firebrick'>&#x2661;</span> by REN</p>
+    </div>
+</body>
+</html>
+
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js">
+
+</script>
+
+<script>
+    function submitPayment() {
+        // TODO: ADD Massage attenion that not realy work!!
+        // TODO: check if the all fileds fill. => the message.
+        alert("Finish Payment!!!");
+    }
+</script>
+
+<script>
+    let cartList = [];
+    let sumTotal = 0;
+    window.onload = loadFunc();
+
+    function loadFunc() {
+        // Get cart list.
+        cartList = JSON.parse(sessionStorage.getItem("cartList"));
+
+        updateView();
+    }
+
+    function updateView() {
+        // update length of cart.
+        document.getElementById("cartLength").innerText = cartList.length;
+
+        for (var item of cartList.reverse()) {
+            if (item == "" || item == "null") {
+                continue;
+            }
+            var name = item[0];
+            var size = item[1];
+            var price = item[2];
+            var quantity = item[3];
+            var total = (price * quantity).toFixed(2);
+            sumTotal += (total * 1);
+
+            // Add rows to cart list view.
+            $('#table').prepend(
+                '<li class="list-group-item d-flex justify-content-between lh-condensed">' +
+                '<div>' +
+                '<h6 class="my-0">' + name + '</h6>' +
+                '<small class="text-muted">Size: ' + size + ', Quantity: ' + quantity + '</small>' +
+                '</div>' +
+                '<span class="text-muted">$ ' + total + '</span>' +
+                '</li>'
+            );
+        }
+
+        // Update Total view.
+        document.getElementById("totalPrice").innerText = "$ " + sumTotal.toFixed(2);
+
+        // Add cart scroll view.
+        if (cartList.length > 8) {
+            var ul = document.getElementById("table");
+            ul.style.overflowY = "scroll";
+            ul.style.height = "500px";
+        }
+
+    }
+</script>

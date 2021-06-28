@@ -238,9 +238,6 @@
             filter: brightness(90%);
         }
 
-        /*.item:hover p {
-            color: #E5E5E5;
-        }*/
 
         .item:hover button {
             background-color: #e5e5e5;
@@ -286,20 +283,6 @@
             cursor: pointer;
         }
 
-        .wishlistbtn:hover {
-            /*background-color: #e5e5e5;
-                /*background-image: url(like2.png);*/
-        }
-
-        /*.removeBtnImg {
-            margin: 0;
-            width: 28px;
-            height: 28px;
-            float: left;
-            cursor: pointer;
-        }*/
-
-
         /*------------------------------------*/
 
 
@@ -334,17 +317,6 @@
             visibility: hidden;
         }
 
-        /*#emptyMassageContainer {
-            position: absolute;
-            padding-left: 19%;
-            padding-top: 40px;
-            padding-bottom: 10px;
-
-
-            visibility: hidden;
-
-        }*/
-
         .title {
             font-size: 32px;
             font-family: 'Work Sans', sans-serif;
@@ -376,13 +348,13 @@
             <li><a href="../about.html">About</a></li>
             <li><a href="../contact.html">Contact</a></li>
             <li style="float:right">
-                <a href="#">
+                <a href="../cart.html">
                     <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
                     <span class="badge" id="cart">2</span>
                 </a>
             </li>
             <li style="float:right">
-                <a href="../wishlist.html">
+                <a href="../Shop/wishlist.html">
                     <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                     <span class="badge" id="wishlist" style="right: 5px;">0</span>
                 </a>
@@ -427,8 +399,34 @@
 <script>
     let clickOnDeleteBtn = false;
     let wishlist = [];
+    let cartList = [];
+
     window.onload = loadFunc();
 
+    function loadFunc() {
+        // Get wishlist
+        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        wishlist = cookieValue.split(",");
+
+        document.cookie = "list=" + wishlist;
+
+        wishlistNotification();
+        showView();
+
+        // Get cart list.
+        cartList = JSON.parse(sessionStorage.getItem("cartList"));
+        cartListNotification();
+    }
+
+    function cartListNotification() {
+        var bag = document.getElementById("cart");
+        if (cartList == null || cartList.length == 0) {
+            bag.style.visibility = "hidden";
+        } else {
+            bag.style.visibility = "visible";
+            bag.innerText = cartList.length;
+        }
+    }
 
     function wishlistNotification() {
         var heart = document.getElementById("wishlist");
@@ -439,19 +437,6 @@
         } else {
             heart.style.visibility = "hidden";
         }
-    }
-
-    function loadFunc() {
-        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-        wishlist = cookieValue.split(",");
-        //alert(wishlist);
-        //wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
-        document.cookie = "list=" + wishlist;
-
-        //alert(document.cookie);
-        wishlistNotification();
-        showView();
- 
     }
 
     function showView() {

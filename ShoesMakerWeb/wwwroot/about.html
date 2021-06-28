@@ -274,13 +274,13 @@
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../contact.html">Contact</a></li>
                 <li style="float:right">
-                    <a href="#">
+                    <a href="../cart.html">
                         <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
                         <span class="badge" id="cart">2</span>
                     </a>
                 </li>
                 <li style="float:right">
-                    <a href="../wishlist.html">
+                    <a href="../Shop/wishlist.html">
                         <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                         <span class="badge" id="wishlist" style="right: 5px;">0</span>
                     </a>
@@ -376,7 +376,32 @@
 
 <script>
     let wishlist = [];
+    let cartList = [];
+
     window.onload = loadFunc();
+
+    function loadFunc() {
+         // Get wishlist.
+        wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
+        document.cookie = "list=" + wishlist;    // TODO : Can delete this!!!
+
+        wishlistNotification();
+
+        // Get cart list.
+        cartList = JSON.parse(sessionStorage.getItem("cartList"));
+        cartListNotification();
+
+    }
+
+    function cartListNotification() {
+        var bag = document.getElementById("cart");
+        if (cartList == null || cartList.length == 0) {
+            bag.style.visibility = "hidden";
+        } else {
+            bag.style.visibility = "visible";
+            bag.innerText = cartList.length;
+        }
+    }
 
     function wishlistNotification() {
         var heart = document.getElementById("wishlist");
@@ -387,14 +412,6 @@
         } else {
             heart.style.visibility = "hidden";
         }
-    }
-
-    function loadFunc() {
-        wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
-        document.cookie = "list=" + wishlist;
-
-        //alert(document.cookie);
-        wishlistNotification();
     }
 
 </script>

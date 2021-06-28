@@ -238,6 +238,7 @@
             background-color: lightblue;
             border-radius: 20px;
         }
+
         /*--------------------------------*/
 
         .addToCartBtn {
@@ -245,7 +246,7 @@
             border: 1px solid black;
             padding: 10px;
             font-size: 20px;
-            border-radius: 30px;
+            /*border-radius: 30px;*/
             background-color: black;
             color: white;
             cursor: pointer;
@@ -277,7 +278,9 @@
             .addToWishBtn:hover {
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             }
+
         /*---------------------------*/
+
         .wishlistBtnImg {
             margin: 0;
             width: 25px;
@@ -299,6 +302,9 @@
             font-size: 10px;
             visibility: hidden;
         }
+
+
+
     </style>
     <title></title>
 </head>
@@ -319,13 +325,13 @@
             <li><a href="../about.html">About</a></li>
             <li><a href="../contact.html">Contact</a></li>
             <li style="float:right">
-                <a href="#">
+                <a href="../cart.html">
                     <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
                     <span class="badge" id="cart">2</span>
                 </a>
             </li>
             <li style="float:right">
-                <a href="../wishlist.html">
+                <a href="../Shop/wishlist.html">
                     <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                     <span class="badge" id="wishlist" style="right: 5px;">0</span>
                 </a>
@@ -343,7 +349,7 @@
             <div class="column details">
                 <p id="category" style="font-size: 18px;">Category: Boots</p>
                 <p id="name" style="font-size: 20px;">-Item name-</p>
-                <h1 id="price" style="font-size: 30px;"> 22.99 $</h1>
+                <h1 id="price" style="font-size: 30px;">22.99</h1>
 
                 <br />
                 <br />
@@ -362,7 +368,7 @@
 
                 <br />
 
-                <p>Chooes amount:</p>
+                <p>Choose quantity:</p>
                 <div class="row rowAmountStyle">
                     <div class="column amount">
                         <button onclick="decrease()" class="sizeBtn">-</button>
@@ -379,14 +385,10 @@
                 <br />
 
                 <div class="row">
-                    <!--style="padding-right:10px;"-->
                     <div class="column cart">
-                        <button class="addToCartBtn" onclick="addItemToCart()" title="Buy this item">Add to cart <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
+                        <button class="addToCartBtn" onclick="addItemToCart()" title="Buy this item">ADD TO CART <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
                     </div>
                     <div class="column">
-                        <!--<button class="addToWishBtn" onclick="addWishlist()" onmouseover="changeBtn()">
-                            <img class="wishlistBtnImg" onclick="addToWishlist()" src="add.png" />
-                        </button>-->
                         <button class="addToWishBtn" title="Add to wishlist">
                             <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="itemWish" src="add.png" />
                         </button>
@@ -396,14 +398,13 @@
 
         </div>
     </div>
-    <script src="../global.js"></script>
     <div class="footer">
         <!--<h2>Footer</h2>-->
         <hr />
         <p>Copyright © 2021 All rights reserved | This web is made with <span style='font-size: 16px;color:firebrick'>&#x2661;</span> by REN</p>
     </div>
     <!--<button onclick="topFunction()" id="getToTopBtn" title="Go to top">&#x1F851;</button>-->
-    <script src="../global.js"></script>
+    <!--<script src="../global.js"></script>-->
 
 </body>
 </html>
@@ -413,9 +414,15 @@
 <!--get URL parameters  - loadFunc-->
 <script>
     let itemID = "";
+    let size = "";
+    let price = "";
+    let quantity = "";
     let count = 1;
+
     let wishlist;
     let sizeOfWishlist = 0;
+    let cartList = [];
+    let sizeOfCartList = 0;
 
     window.onload = loadFunc();
     
@@ -449,6 +456,16 @@
         }
     }
 
+    function cartListNotification() {
+        var bag = document.getElementById("cart");
+        if (cartList == null || cartList.length == 0) {
+            bag.style.visibility = "hidden";
+        } else {
+            bag.style.visibility = "visible";
+            bag.innerText = cartList.length;
+        }
+    }
+
     /*function getUrlVars() {
     //    var vars = {};
     //    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
@@ -457,43 +474,86 @@
     //    return vars;
     }*/
 
-    //function getCookie(cName) {
-    //    const name = cName + "=";
-    //    const cDecoded = decodeURIComponent(document.cookie); //to be careful
-    //    const cArr = cDecoded.split('; ');
-    //    let res;
-    //    cArr.forEach(val => {
-    //        if (val.indexOf(name) === 0) res = val.substring(name.length);
-    //    })
-    //    return res;
-    //}
 
     function loadFunc() {
-        //var list = getCookie(list)
-        alert(document.cookie);
+        // Get wishlist cookie.
         var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         var list = cookieValue.split(",");
-        //alert(list.length);
-        //////list.splice(1, 1);
-        alert(list);
         wishlist = list.slice();
         //wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
+
         var name = document.getElementById("name");
         var category = document.getElementById("category");
+        price = document.getElementById("price").innerText; // TODO: change get price from the prev page or from DB!!
+        document.getElementById("price").innerText = "$ " + price;
+
+        // Get item name.
         itemID = GetURLParameter("imageID");
         name.innerText = "Product Name: " + itemID;
+
+        // Get item category.
         category.innerText = "Category: " + GetURLParameter("category");
+
+        // Wishlist (button) view.
         if (isInWishlist("wishlist" + itemID)) {
             var itemWish = document.getElementById("itemWish");
             itemWish.src = "remove.png";
         }
         wishlistNotification();
 
+        // Get item image.    // TODO: change get img from DB!!
         var itemImage = document.getElementById("itemImage");
         var str = GetURLParameter("src").split('/');
         itemImage.src = str[str.length - 1];
+
+        // Get cart list.
+        cartList = JSON.parse(sessionStorage.getItem("cartList"));
+        cartListNotification();
     }
 
+</script>
+
+
+<script>
+
+    function push_cart_item(item) {
+        for (var i = 0; i < cartList.length; i++) {
+            if (cartList[i][0] == item[0] && cartList[i][1] == item[1]) {
+                cartList[i][3] += item[3];
+                return;
+            }
+        }
+        cartList.push(item);
+    }
+
+    function addItemToCart() {
+
+        // cartlist intalization.
+        if (cartList == null) {
+            cartList = [];
+        }
+
+        quantity = count;
+        var itemDetails = [itemID, size, price, quantity];
+
+        // Add to cart
+        push_cart_item(itemDetails);
+        //alert(cartList);
+        cartListNotification();
+
+        sessionStorage.setItem("cartList", JSON.stringify(cartList));
+
+    }
+
+    function cartListNotification() {
+        var bag = document.getElementById("cart");
+        if (cartList == null || cartList.length == 0) {
+            bag.style.visibility = "hidden";
+        } else {
+            bag.style.visibility = "visible";
+            bag.innerText = cartList.length;
+        }
+    }
 </script>
 
 
@@ -515,7 +575,6 @@
         }
         wishlist.push(id);
     }
-
 
     function addToWishlist(id) {
         clickOnWishImg = true;
@@ -545,21 +604,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--Shoe size style-->
 <script>
+
     let idLastSelected = "";
     function selectedSize(id) {
         var button = document.getElementById(id);
@@ -571,7 +618,12 @@
             lastBtn.style.border = "none";
             lastBtn.style = "dot";
         }
+        //} else {
+        //    selectedSize = true;
+        //}
+
         idLastSelected = id;
+        size = id;
     }
 </script>
 
@@ -612,13 +664,6 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-</script>
-
-<script>
-    function addWishlist() {
-        //&#128153;
-    }
-
 </script>
 
 <!--calculate amount of item-->
