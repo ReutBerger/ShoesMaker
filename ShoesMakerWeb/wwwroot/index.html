@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--/* cart icon*/-->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!--/* heart icon*/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- AJAX -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <!--<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">-->
     <style>
         * {
             box-sizing: border-box;
@@ -103,6 +103,7 @@
         img:hover {
             transform: scale(0.9);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
             /*margin-bottom: 30px;*/
         }
 
@@ -143,6 +144,23 @@
                         background: #939393;
                     }
 
+                ul li button {
+                    display: block;
+                    padding: 7px 25px;
+                    color: darkgreen; /*text color*/
+                    font-size: 20px;
+                    border: none;
+                    margin: 0;
+                    background: #f2f2f2;
+                }
+
+                    ul li button:hover {
+                        /*border-radius: 40px 40px 40px 40px;*/
+                        color: #fff;
+                        cursor: pointer;
+                        background: #939393;
+                    }
+
                 ul li ul.dropdown {
                     min-width: 100%; /* Set width of the dropdown */
                     background: #f2f2f2;
@@ -150,7 +168,6 @@
                     position: absolute;
                     z-index: 999;
                     left: 0;
-                    border-radius: 0 0 5px 5px; /*circle coners*/
                 }
 
                 ul li:hover ul.dropdown {
@@ -160,6 +177,24 @@
                 ul li ul.dropdown li {
                     display: block;
                 }
+
+                    ul li ul.dropdown li button {
+                        border: none;
+                        background: #f2f2f2;
+                        font-size: 20px;
+                        color: darkgreen; /*text color*/
+                        padding: 8px 25px;
+                    }
+
+                        ul li ul.dropdown li button:hover {
+                            color: #fff;
+                            background-color: darkgrey;
+                            width: 100%;
+                            text-align: left;
+                            cursor: pointer;
+                            /*border-radius: 40px 40px 40px 40px;*/
+                        }
+
 
         /*.content {
             padding: 16px;
@@ -171,6 +206,8 @@
             width: 100%;
             background-color: #f2f2f2; /* color of bar when move*/
             z-index: 10;
+            /*border-bottom: 1px solid black;*/
+            box-shadow: 0 1px grey;
         }
 
         /*.sticky + .content {
@@ -241,16 +278,16 @@
         /*---------------------------*/
         .badge {
             position: absolute;
-            top: -5px;
-            right: 8px;
-            padding: 2px 6px;
+            top: 2px;
+            right: 10px;
+            padding: 4px 4px;
             border-radius: 50%;
             background-color: black;
             color: white;
             font-size: 10px;
             visibility: hidden;
+            text-align: center;
         }
-
     </style>
     <title>
         REN shoes
@@ -265,27 +302,39 @@
                 <li><a class="active" id="homePage" href="index.html">REN Shoes</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="#">Shop &#9662;</a>
+                    <a>Shop &#9662;</a>
                     <ul class="dropdown">
-                        <li><a href="Shop/boots.html">Boots</a></li>
-                        <li><a href="Shop/sandals.html">Sandals</a></li>
+                        <!--<li><a href="Shop/boots.html">Boots</a></li>-->
+                        <li><button id="tboots" onclick="getShoesByType(id)">Boots</button></li>
+                        <li><button id="tsandals" onclick="getShoesByType(id)">Sandals</button></li>
+                        <li><button id="tshoes" onclick="getShoesByType(id)">Shoes</button></li>
+                        <li><button id="tslippers" onclick="getShoesByType(id)">Slippers</button></li>
+                        <!--<li><a href="Shop/sandals.html">Sandals</a></li>
                         <li><a href="Shop/shoes.html">Shoes</a></li>
-                        <li><a href="Shop/slippers.html">Slippers</a></li>
+                        <li><a href="Shop/slippers.html">Slippers</a></li>-->
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li style="float:right">
-                    <a href="cart.html">
+                    <!--<a href="cart.html">
                         <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
                         <span class="badge" id="cart">2</span>
-                    </a>
+                    </a>-->
+                    <button onclick="goToCartPage()">
+                        <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
+                        <span class="badge" id="cart">0</span>
+                    </button>
                 </li>
                 <li style="float:right">
-                    <a href="Shop/wishlist.html">
+                    <!--<a href="Shop/wishlist.html">
                         <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                         <span class="badge" id="wishlist" style="right: 5px;">0</span>
-                    </a>
+                    </a>-->
+                    <button onclick="goToWishlistPage()">
+                        <span><i class='far fa-heart' style='font-size: 20px'></i></span>
+                        <span class="badge" id="wishlist" style="right: 5px;">0</span>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -296,54 +345,46 @@
         <br />
         <div class="row">
             <div class="column">
-                <!--style="background-color:paleturquoise;"-->
                 <div class="box">
-                    <a href="Shop/boots.html">
-                        <img class="img-fluid" src="boots.jpg" alt="..." style="max-width: 100%; height: auto;" />
+                    <a id="aboots" onclick="getShoesByType(id)">
+                        <img class="img-fluid" src="boots.jpg" style="max-width: 100%; height: auto;" />
                     </a>
                     <div class="text">
                         <h1>Boots</h1>
                     </div>
-                    <!--<p>Shop now!</p>-->
                 </div>
             </div>
             <div class="column">
-                <!--style="background-color:plum;"-->
                 <div class="box">
-                    <a href="Shop/sandals.html">
-                        <img class="img-fluid" src="sandals.jpg" alt="..." style="max-width: 100%; height: auto;" />
+                    <a id="asandals" onclick="getShoesByType(id)">
+                        <img class="img-fluid" src="sandals.jpg" style="max-width: 100%; height: auto;" />
                     </a>
                     <div class="text" style="margin-left:350px">
                         <h1>Sandals</h1>
                     </div>
-                    <!--<p>Shop now!</p>-->
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="column">
-                <!--style="background-color:palegreen;"-->
                 <div class="box">
-                    <a href="Shop/shoes.html">
-                        <img class="img-fluid" src="shoes.jpg" alt="..." style="max-width: 100%; height: auto;" />
+                    <a id="ashoes" onclick="getShoesByType(id)">
+                        <img class="img-fluid" src="shoes.jpg" style="max-width: 100%; height: auto;" />
                     </a>
                     <div class="text">
                         <h1>Shoes</h1>
                     </div>
-                    <!--<p>Shop now!</p>-->
                 </div>
             </div>
             <div class="column">
-                <!--style="background-color:peachpuff;"-->
                 <div class="box">
-                    <a href="Shop/slippers.html">
-                        <img class="img-fluid" src="slippers.jpg" alt="..." style="max-width: 100%; height: auto;" />
+                    <a id="aslippers" onclick="getShoesByType(id)">
+                        <img class="img-fluid" src="slippers.jpg" style="max-width: 100%; height: auto;" />
                     </a>
                     <div class="text" style="margin-left:345px">
                         <h1>Slippers</h1>
                     </div>
-                    <!--<p>Shop now!</p>-->
                 </div>
             </div>
             <br />
@@ -362,86 +403,116 @@
 </html>
 
 
-<!--/* Bar element */
-       #navbar {
-           overflow: hidden;
-           background-color: white;
-           margin: 0 auto;
-       }
+<!--EDEN ADDED THIS 2 SCRIPTS-->
+<script>
+    let shoesList = [];
+    let selectedType = "";
+    function getShoesByType(type) {
+        //alert("yes");
+        selectedType = type.substring(1);
+        let pageNum = 1;
+        let url = "/api/shoes?type=" + selectedType + "&pageNum=" + pageNum;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetShoes,
+            error: function () {
+                alert("Error in getting shoes");
+            }
+        });
+    }
 
-           #navbar a {
-               float: left;
-               display: block;
-               color: darkgreen; /*text*/
-               text-align: center;
-               padding: 14px 16px;
-               text-decoration: none;
-               font-size: 17px;
-               z-index: 3;
-           }
+    function successGetShoes(json) {
+        var shoes = JSON.parse(json);
 
-           #navbar ul {
-               list-style: none;
-               padding: 0;
-               margin: 0;
-               text-align: center;
-           }
+        // TODO: CHANGE 2 TO 20
+        for (var i = 0; i < 2; i++) {
+            var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
+            shoesList.push(itemDetails);
+        }
 
-           #navbar li {
-               display: inline-block;
-           }
+        // Add to sessionStorage shoes list.
+        sessionStorage.setItem("shoesList" + selectedType + "1", JSON.stringify(shoesList));
 
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=1";
+    }
+</script>
 
+<script>
+    function goToWishlistPage() {
+        //alert(wishlist);
+        if (wishlist == null || wishlist == "" || wishlist == "null") {
+            window.location.href = "../Shop/wishlist.html";
+        }
+        for (var wish of wishlist) {
+            if (wish == "" || wish == "null") {
+                continue;
+            }
+            var id = wish.substr(8, wish.length - 1);
+            wishlistFunc(id);
+        }
+    }
 
-           #navbar a:hover {
-               background-color: #ddd;
-               color: black;
-           }
+    function wishlistFunc(id) {
+        //let id = "sandals0";
+        let url = "/api/oneShoe?id=" + id;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetOneShoeWish,
+            error: function () {
+                alert("Error in getting shoe details");
+            }
+        });
+    }
 
-           #navbar a.active {
-               background-color: darkgreen;
-               color: white; /*text*/
-           }
+    function successGetOneShoeWish(json) {
+        var shoe = JSON.parse(json);
+        var shoeDetails = [shoe.Id, shoe.image, shoe.price];
 
-       #navbar-right {
-           float: right;
-       }
+        // 
+        sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
 
-       .content {
-           padding: 16px;
-       }
+        window.location.href = "../Shop/wishlist.html";
+    }
 
-       .sticky {
-           position: fixed;
-           top: 0;
-           width: 100%;
-           background-color: #ddd; /* color of bar when move*/
-       }
+    function goToCartPage() {
+        //alert(cartList);
+        if (cartList == null || cartList == "") {
+            window.location.href = "../cart.html";
+        }
+        for (var item of cartList) {
+            if (item == "" || item == "null") {
+                continue;
+            }
+            var id = item[0];
+            cartFunc(id);
+        }
+    }
 
-           .sticky + .content {
-               padding-top: 60px;
-           }
+    function cartFunc(id) {
+        //let id = "sandals0";
+        let url = "/api/oneShoe?id=" + id;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetOneShoeCart,
+            error: function () {
+                alert("Error in getting shoe details");
+            }
+        });
+    }
 
+    function successGetOneShoeCart(json) {
+        var shoe = JSON.parse(json);
+        var shoeDetails = [shoe.Id, shoe.image, shoe.price];
 
+        // 
+        sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
 
-<!--<a class="active" href="javascript:void(0)">REN Shoes</a>
-<ul>
-    <li><a href="javascript:void(0)">Home</a></li>
-    <li>
-        <div class="dropdown">
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-    </li>
-    <li><a href="javascript:void(0)">Shop</a></li>
-    <li><a href="javascript:void(0)">About</a></li>
-    <li><a href="javascript:void(0)">Contact</a></li>
-    <li style="float:right"><a href="javascript:void(0)"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
-    <li style="float:right"><a href="javascript:void(0)"><span><i class='far fa-heart' style='font-size:20px'></i></span></a></li>
-</ul>-->
+        window.location.href = "../cart.html";
+    }
+</script>
 
 <!--sticky navbar-->
 <script>
@@ -526,10 +597,91 @@
         }
     }
 
-    
+
 </script>
 
 
+
+<!--/* Bar element */
+       #navbar {
+           overflow: hidden;
+           background-color: white;
+           margin: 0 auto;
+       }
+
+           #navbar a {
+               float: left;
+               display: block;
+               color: darkgreen; /*text*/
+               text-align: center;
+               padding: 14px 16px;
+               text-decoration: none;
+               font-size: 17px;
+               z-index: 3;
+           }
+
+           #navbar ul {
+               list-style: none;
+               padding: 0;
+               margin: 0;
+               text-align: center;
+           }
+
+           #navbar li {
+               display: inline-block;
+           }
+
+
+
+           #navbar a:hover {
+               background-color: #ddd;
+               color: black;
+           }
+
+           #navbar a.active {
+               background-color: darkgreen;
+               color: white; /*text*/
+           }
+
+       #navbar-right {
+           float: right;
+       }
+
+       .content {
+           padding: 16px;
+       }
+
+       .sticky {
+           position: fixed;
+           top: 0;
+           width: 100%;
+           background-color: #ddd; /* color of bar when move*/
+       }
+
+           .sticky + .content {
+               padding-top: 60px;
+           }
+
+
+
+<!--<a class="active" href="javascript:void(0)">REN Shoes</a>
+<ul>
+    <li><a href="javascript:void(0)">Home</a></li>
+    <li>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+    </li>
+    <li><a href="javascript:void(0)">Shop</a></li>
+    <li><a href="javascript:void(0)">About</a></li>
+    <li><a href="javascript:void(0)">Contact</a></li>
+    <li style="float:right"><a href="javascript:void(0)"><span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span></a></li>
+    <li style="float:right"><a href="javascript:void(0)"><span><i class='far fa-heart' style='font-size:20px'></i></span></a></li>
+</ul>-->
 <!--<!DOCTYPE html>
 <html>
 <head>

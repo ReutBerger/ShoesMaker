@@ -314,7 +314,7 @@
         // update length of cart.
         document.getElementById("cartLength").innerText = cartList.length;
 
-        for (var item of cartList.reverse()) {
+        for (var item of cartList) {
             if (item == "" || item == "null") {
                 continue;
             }
@@ -326,7 +326,7 @@
             sumTotal += (total * 1);
 
             // Add rows to cart list view.
-            $('#table').prepend(
+            $('#table').append(
                 '<li class="list-group-item d-flex justify-content-between lh-condensed">' +
                 '<div>' +
                 '<h6 class="my-0">' + name + '</h6>' +
