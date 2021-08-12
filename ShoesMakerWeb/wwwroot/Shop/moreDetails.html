@@ -20,7 +20,12 @@
             height: 100%;
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f2f2f2
+            background-color: #f2f2f2;
+            /* Disable copying text in web-page*/
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         /* top image background */
@@ -83,7 +88,7 @@
 
                 ul li a {
                     display: block;
-                    padding: 8px 25px;
+                    padding: 8px 30px 8px 20px;
                     color: darkgreen; /*text color*/
                     text-decoration: none;
                     font-size: 20px;
@@ -95,7 +100,7 @@
                         background: #939393;
                     }
 
-                ul li button {
+                ul li button { /* cart and wish btn */
                     display: block;
                     padding: 7px 25px;
                     color: darkgreen; /*text color*/
@@ -136,7 +141,7 @@
                         background: #f2f2f2;
                         font-size: 20px;
                         color: darkgreen; /*text color*/
-                        padding: 8px 25px;
+                        padding: 8px 15px 8px 20px;
                     }
 
                         ul li ul.dropdown li button:hover {
@@ -356,8 +361,8 @@
                 <ul class="dropdown">
                     <li><button id="tboots" onclick="getShoesByType(id)">Boots</button></li>
                     <li><button id="tsandals" onclick="getShoesByType(id)">Sandals</button></li>
-                    <li><button id="tshoes" onclick="getShoesByType(id)">Shoes</button></li>
                     <li><button id="tslippers" onclick="getShoesByType(id)">Slippers</button></li>
+                    <li><button id="tsneakers" onclick="getShoesByType(id)">Sneakers</button></li>
                 </ul>
             </li>
             <li><a href="../about.html">About</a></li>

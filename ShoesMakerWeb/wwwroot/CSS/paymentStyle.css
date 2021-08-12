@@ -1,0 +1,68 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #f2f2f2;
+    /* Disable copying text in web-page*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*------------------------------*/
+
+/* Titles */
+
+#pageTitle {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#firstSubTitle {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+#secoundSubTitle {
+    padding-left: 0px;
+}
+
+#thirdSubTitle {
+    padding-left: 35px;
+}
+
+/*------------------------------*/
+
+/* Cart summary */
+
+#cartLength {
+    background-color: gray;
+    border-radius: 50%;
+}
+
+#total {
+    font-weight: bold;
+    color: forestgreen;
+}
+
+#totalPrice {
+    color: forestgreen;
+}
+
+/*-------------*/
+
+/* Footer */
+
+#footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #C8D5C5;
+    bottom: 0;
+    margin-top: 80px;
+    font-family: 'Raleway', sans-serif;
+}

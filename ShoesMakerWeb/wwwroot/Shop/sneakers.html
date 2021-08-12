@@ -22,7 +22,12 @@
             height: 100%;
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f2f2f2
+            background-color: #f2f2f2;
+            /* Disable copying text in web-page*/
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         /* top image background */
@@ -90,7 +95,7 @@
 
                 ul li a {
                     display: block;
-                    padding: 8px 25px;
+                    padding: 8px 30px 8px 20px;
                     color: darkgreen; /*text color*/
                     text-decoration: none;
                     font-size: 20px;
@@ -102,7 +107,7 @@
                         background: #939393;
                     }
 
-                ul li button {
+                ul li button { /* cart and wish btn */
                     display: block;
                     padding: 7px 25px;
                     color: darkgreen; /*text color*/
@@ -141,7 +146,7 @@
                         background: #f2f2f2;
                         font-size: 20px;
                         color: darkgreen; /*text color*/
-                        padding: 8px 25px;
+                        padding: 8px 15px 8px 20px;
                     }
 
                         ul li ul.dropdown li button:hover {
@@ -292,7 +297,7 @@
         }
 
         .right {
-            width: 70%;
+            width: 90%;
             padding: 10px;
             /*background-color: rosybrown;*/
         }
@@ -312,7 +317,8 @@
 
         .numD {
             width: 10%; /* maybe smaller */
-            float: right;
+            /*float: right;*/
+            font-weight: bold;
             margin-bottom: 10px;
         }
 
@@ -395,7 +401,7 @@
         /*---------------------------*/
 
         .ima {
-            width: 25%;
+            width: 20%;
             padding: 10px;
             background-color: white;
             /*padding: 20px 10px 100px 10px;*/
@@ -652,10 +658,10 @@
                 <li>
                     <a>Shop &#9662;</a>
                     <ul class="dropdown">
-                        <li><button id="tboots" onclick="getShoesByType(id)">Boots</button></li>
-                        <li><button id="tsandals" onclick="getShoesByType(id)">Sandals</button></li>
-                        <li><button id="tshoes" onclick="getShoesByType(id)">Shoes</button></li>
-                        <li><button id="tslippers" onclick="getShoesByType(id)">Slippers</button></li>
+                        <li><button id="tboots" onclick="getShoesfirstPage(id)">Boots</button></li>
+                        <li><button id="tsandals" onclick="getShoesfirstPage(id)">Sandals</button></li>
+                        <li><button id="tslippers" onclick="getShoesfirstPage(id)">Slippers</button></li>
+                        <li><button id="tsneakers" onclick="getShoesfirstPage(id)">Sneakers</button></li>
                     </ul>
                 </li>
                 <li><a href="../about.html">About</a></li>
@@ -680,7 +686,7 @@
 
     <br />
     <br />
-    <h1 style="text-align:center">SHOES</h1>
+    <h1 style="text-align:center">SNEAKERS</h1>
     <hr style="height:3px;width:20%;" />
     <br />
 
@@ -690,13 +696,13 @@
                 <br />
             </div>
 
-            <div class="column left">
+            <!--<div class="column left">
                 <button class="accordion">Category</button>
                 <div class="panel">
                     <ul class="category">
                         <li><a id="aboots" onclick="getShoesfirstPage(id)">Boots</a></li>
                         <li><a id="asandals" onclick="getShoesfirstPage(id)">Sandals</a></li>
-                        <li><a id="ashoes" onclick="getShoesfirstPage(id)">Shoes</a></li>
+                        <li><a id="asneakers" onclick="getShoesfirstPage(id)">Sneakers</a></li>
                         <li><a id="aslippers" onclick="getShoesfirstPage(id)">Slippers</a></li>
                     </ul>
                 </div>
@@ -714,7 +720,7 @@
                     </div>
                     <button onclick="filterPrice()" style="cursor: pointer; margin-bottom:10px; float:right; font-size:16px;">Filter</button>
                 </div>
-            </div>
+            </div>-->
 
             <div class="column right">
                 <div class="row">
@@ -792,7 +798,7 @@
         showActivePage();
 
         // Get this page shoes list (shoes details).
-        shoesList = JSON.parse(sessionStorage.getItem("shoesListshoes" + pageNum));
+        shoesList = JSON.parse(sessionStorage.getItem("shoesListsneakers" + pageNum));
         loadShoes();
 
         // Get wishlist cookie.
@@ -833,7 +839,7 @@
                     '<button class="wishlistBtn">' +
                     '<img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlist' + itemId + '" src="add.png" />' +
                     '</button>' +
-                    '<img id="imageSrc' + itemId + '" src="' + imageSrc + '" alt="shoes">' +
+                    '<img id="imageSrc' + itemId + '" src="' + imageSrc + '" alt="sneakers">' +
                     '<p class="price">' + price + '</p>' + '</div>' + '</div>' + '</div>');
             }
             else {
@@ -843,7 +849,7 @@
                     '<button class="wishlistBtn">' +
                     '<img class="wishlistBtnImg" onclick="addToWishlist(id)" id="wishlist' + itemId + '" src="add.png" />' +
                     '</button>' +
-                    '<img id="imageSrc' + itemId + '" src="' + imageSrc + '" alt="shoes">' +
+                    '<img id="imageSrc' + itemId + '" src="' + imageSrc + '" alt="sneakers">' +
                     '<p class="price">' + price + '</p>' + '</div>' + '</div>');
             }
             j++;
@@ -908,7 +914,7 @@
         if (pageNum == 0) {
             pageNum = 1;
         }
-        getShoesByType("pshoes");
+        getShoesByType("psneakers");
     }
 
     function nextPage() {
@@ -916,7 +922,7 @@
         if (pageNum == 6) {
             pageNum = 5;
         }
-        getShoesByType("nshoes");
+        getShoesByType("nsneakers");
     }
 
 </script>
@@ -929,7 +935,7 @@
 
     function getShoesPage(page) {
         pageNum = page;
-        getShoesByType("gshoes");
+        getShoesByType("gsneakers");
     }
 
     function getShoesByType(type) {
@@ -1054,9 +1060,9 @@
             // Show more details of this "id" shoe.
             //getItemDetails(id);
             //var srcImage = document.getElementById("imageSrc" + id);
-            //window.location.href = '../Shop/moreDetails.html?imageID=' + id + '&category=Shoes&src=' + srcImage.src;
+            //window.location.href = '../Shop/moreDetails.html?imageID=' + id + '&category=Sneakers&src=' + srcImage.src;
 
-            window.location.href = '../Shop/moreDetails.html?imageID=' + id + '&category=Shoes';
+            window.location.href = '../Shop/moreDetails.html?imageID=' + id + '&category=Sneakers';
         } else {
             clickOnWishImg = false;
         }
