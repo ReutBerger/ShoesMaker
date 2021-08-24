@@ -3,355 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--/* cart icon*/-->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!--/* heart icon*/-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- AJAX -->
+    <!-- Web icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/favicon.ico">
+    <!-- Heart icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Cart icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <!--<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">-->
-    <!--<script src="../global.js"></script>-->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f2f2f2;
-            /* Disable copying text in web-page*/
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* top image background */
-        .topBackground {
-            /* The image used */
-            background-image: url("blue.jpg");
-            /*background-color: lightblue;*/
-            /* Full height */
-            height: 60%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Position text in the middle of the page/image */
-        .bg-text {
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0, 0.3); /* Black w/opacity/see-through */
-            color: white;
-            font-weight: bold;
-            font-size: 80px;
-            border: 10px solid #f1f1f1;
-            position: absolute; /* fixed*/
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            width: 300px;
-            padding: 20px;
-            text-align: center;
-        }
-
-
-        /*---------------*/
-
-        ul {
-            padding: 0;
-            list-style: none;
-            background: #f2f2f2;
-            padding-bottom: 15px;
-            box-shadow: 0 1px grey;
-        }
-
-            ul li {
-                display: inline-block;
-                position: relative;
-                line-height: 21px;
-                text-align: left;
-            }
-
-                ul li a.active {
-                    background-color: darkgreen;
-                    color: white;
-                    padding: 8px 30px;
-                    margin: 0 400px 0 0;
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-
-                ul li a {
-                    display: block;
-                    padding: 8px 30px 8px 20px;
-                    color: darkgreen; /*text color*/
-                    text-decoration: none;
-                    font-size: 20px;
-                }
-
-                    ul li a:hover {
-                        /*border-radius: 40px 40px 40px 40px;*/
-                        color: #fff;
-                        background: #939393;
-                    }
-
-                ul li button { /* cart and wish btn */
-                    display: block;
-                    padding: 7px 25px;
-                    color: darkgreen; /*text color*/
-                    font-size: 20px;
-                    border: none;
-                    margin: 0;
-                    background: #f2f2f2;
-                }
-
-                    ul li button:hover {
-                        /*border-radius: 40px 40px 40px 40px;*/
-                        color: #fff;
-                        background: #939393;
-                        cursor: pointer;
-                    }
-
-                ul li ul.dropdown {
-                    min-width: 100%; /* Set width of the dropdown */
-                    background: #f2f2f2;
-                    display: none;
-                    position: absolute;
-                    z-index: 999;
-                    left: 0;
-                    padding-bottom: 0;
-                    box-shadow: none;
-                }
-
-                ul li:hover ul.dropdown {
-                    display: block; /* Display the dropdown */
-                }
-
-                ul li ul.dropdown li {
-                    display: block;
-                }
-
-                    ul li ul.dropdown li button {
-                        border: none;
-                        background: #f2f2f2;
-                        font-size: 20px;
-                        color: darkgreen; /*text color*/
-                        padding: 8px 15px 8px 20px;
-                    }
-
-                        ul li ul.dropdown li button:hover {
-                            color: #fff;
-                            background-color: darkgrey;
-                            width: 100%;
-                            text-align: left;
-                            cursor: pointer;
-                            /*border-radius: 40px 40px 40px 40px;*/
-                        }
-
-        .sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #f2f2f2; /* color of bar when move*/
-            z-index: 10;
-            box-shadow: 0 1px grey;
-        }
-
-        /*---------------------------*/
-
-        /* Footer */
-        .footer {
-            padding: 30px;
-            text-align: center;
-            background-color: #C8D5C5;
-        }
-
-
-        /*---------------------------*/
-
-        /* Create three unequal columns that floats next to each other */
-        .column {
-            float: left;
-            /*height: 500px;*/ /* Should be removed. Only for demonstration */
-            text-align: left;
-            /*background-color: #ccc;*/
-        }
-
-        .details {
-            width: 45%;
-            /*padding: 10px;*/
-            padding: 10px 0 10px 50px;
-            /*background-color: lightskyblue;*/
-            /*border-radius: 50%;
-            border: 4px double green;*/
-            height: 500px;
-        }
-
-        .image {
-            width: 55%;
-            /*padding: 10px;*/
-            background-color: white;
-            padding: 100px 130px 100px 130px;
-            /*border-radius: 50%;
-            border: 4px double green;*/
-        }
-
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .rowAmountStyle {
-            background-color: white;
-            align-items: center;
-            padding: 5px 10px 5px 10px;
-            border-radius: 15px;
-            width: 27%;
-        }
-
-        .amount {
-            padding: 0 5px 0 5px;
-        }
-
-        .cart {
-            width: 50%;
-        }
-
-        /*---------------------------*/
-        .containerDetailes {
-            padding: 50px 160px 100px 160px;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            cursor: zoom-in;
-        }
-
-        .image:hover img {
-            transform: scale(1.5);
-        }
-
-        /*---------------------------*/
-
-        .dot {
-            height: 30px;
-            width: 30px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            text-align: center;
-            padding-top: 5px;
-            cursor: pointer;
-        }
-
-            .dot:hover {
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                background-color: lightblue;
-            }
-
-        /*---------------------------*/
-
-        .sizeBtn {
-            font-size: 18px;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            padding: 0;
-            margin: 2px 0px 2px 0px;
-            cursor: pointer;
-            /*border-radius: 10px 0 0 10px;*/
-            /*background-color: white;
-            border: none;*/
-        }
-
-        .num {
-            font-size: 21px;
-            margin: 0;
-            /*padding: 2px 10px 5px 10px;*/
-            padding: 2px 10px 2px 10px;
-            text-align: center;
-            background-color: lightblue;
-            border-radius: 20px;
-        }
-
-        /*--------------------------------*/
-
-        .addToCartBtn {
-            width: 100%;
-            border: 1px solid black;
-            padding: 10px;
-            font-size: 20px;
-            /*border-radius: 30px;*/
-            background-color: black;
-            color: white;
-            cursor: pointer;
-        }
-
-            .addToCartBtn:hover {
-                background-color: lightblue;
-                color: black;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            }
-
-        /*---------------------------------*/
-
-        .addToWishBtn {
-            border: 1px solid black;
-            /*margin-top:10px;*/
-            border-radius: 50%;
-            font-size: 40px;
-            background-color: white;
-            margin-left: 40%;
-            height: 45px;
-            width: 45px;
-            /**/
-            color: black;
-            padding: 4px 0 0 9px;
-            /*margin: 0;*/
-        }
-
-            .addToWishBtn:hover {
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            }
-
-        /*---------------------------*/
-
-        .wishlistBtnImg {
-            margin: 0;
-            width: 25px;
-            height: 25px;
-            float: left;
-            cursor: pointer;
-        }
-
-        /*---------------------------*/
-
-        .badge {
-            position: absolute;
-            top: 2px;
-            right: 10px;
-            padding: 4px 4px;
-            border-radius: 50%;
-            background-color: black;
-            color: white;
-            font-size: 10px;
-            visibility: hidden;
-            text-align: center;
-        }
-
-    </style>
-    <title></title>
+    <!-- Refernce to style -->
+    <link rel="stylesheet" type="text/css" href="../CSS/moreDetailsStyle.css" />
+    
+    <title>
+        REN Shoes | Shoe Details
+    </title>
 </head>
 <body>
+    <div class="modal"><!-- Place at bottom of page --></div>
+    <!-- Navbar -->
     <div id="navbar">
         <ul>
             <li><a class="active" id="homePage" href="../index.html">REN Shoes</a></li>
@@ -367,13 +43,13 @@
             </li>
             <li><a href="../about.html">About</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li style="float:right">
+            <li class="floatRight">
                 <button onclick="goToCartPage()">
                     <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
                     <span class="badge" id="cart">0</span>
                 </button>
             </li>
-            <li style="float:right">
+            <li class="floatRight">
                 <button onclick="goToWishlistPage()">
                     <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                     <span class="badge" id="wishlist" style="right: 5px;">0</span>
@@ -382,21 +58,25 @@
         </ul>
     </div>
 
+    <!-- Page design -->
     <div class="containerDetailes">
         <div class="row">
 
+            <!-- Shoe image -->
             <div class="column image">
                 <img id="itemImage">
             </div>
 
+            <!-- Shoe details -->
             <div class="column details">
-                <p id="category" style="font-size: 18px;">Category: Boots</p>
-                <p id="name" style="font-size: 20px;">-Item name-</p>
-                <h1 id="price" style="font-size: 30px;"></h1>
+                <p id="category">Category: Boots</p>
+                <p id="name">-Item name-</p>
+                <h1 id="price"></h1>
 
                 <br />
                 <br />
 
+                <!-- Shoe size -->
                 <p>Select size:</p>
                 <div class="row" id="size">
                     <span class="dot" onclick="selectedSize(id)" id="35">35</span>
@@ -411,479 +91,46 @@
 
                 <br />
 
+                <!-- Shoe quantity -->
                 <p>Choose quantity:</p>
-                <div class="row rowAmountStyle">
-                    <div class="column amount">
-                        <button onclick="decrease()" class="sizeBtn">-</button>
+                <div class="row rowQuantityStyle">
+                    <div class="column quantity">
+                        <button onclick="decrease()" class="btn">-</button>
                     </div>
-                    <div class="column amount">
+                    <div class="column quantity">
                         <p class="num" id="number"> 1 </p>
                     </div>
-                    <div class="column amount">
-                        <button onclick="increase()" class="sizeBtn">+</button>
+                    <div class="column quantity">
+                        <button onclick="increase()" class="btn">+</button>
                     </div>
                 </div>
 
                 <br />
                 <br />
 
+                <!-- Buttons -->
                 <div class="row">
                     <div class="column cart">
-                        <button class="addToCartBtn" onclick="addItemToCart()" title="Buy this item">ADD TO CART <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
+                        <button id="cart" class="addToCartBtn" onclick="addItemToCart()" title="Click to add this shoe to Shopping cart!">ADD TO CART <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
                     </div>
                     <div class="column">
-                        <button class="addToWishBtn" title="Add to wishlist">
-                            <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="itemWish" src="add.png" />
+                        <button class="addToWishBtn" title="Click to add this shoe to wishlist!">
+                            <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="itemWish" src="../Images/add.png" />
                         </button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <div class="footer">
-        <!--<h2>Footer</h2>-->
+
+    <!-- Footer -->
+    <div id="footer">
         <hr />
-        <p>Copyright © 2021 All rights reserved | This web is made with <span style='font-size: 16px;color:firebrick'>&#x2661;</span> by REN</p>
+        <p>Copyright © 2021 All rights reserved | This web is made with <span class="love">&#x2661;</span> by REN</p>
     </div>
-    <!--<button onclick="topFunction()" id="getToTopBtn" title="Go to top">&#x1F851;</button>-->
-    <!--<script src="../global.js"></script>-->
+
+    <!-- Page functionality -->
+    <script type="text/javascript" src="../JS/moreDetailsScripts.js"></script>
 
 </body>
 </html>
-
-
-
-<!--get URL parameters  - loadFunc-->
-<script>
-    let itemID = "";
-    let size = "";
-    let price = "";
-    let quantity = "";
-    let count = 1;
-
-    let wishlist;
-    let sizeOfWishlist = 0;
-    let cartList = [];
-    let sizeOfCartList = 0;
-
-    window.onload = loadFunc();
-
-    function GetURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) {
-                return sParameterName[1];
-            }
-        }
-    }
-
-    function isInWishlist(id) {
-        var pos = wishlist.indexOf(id);
-        if (pos >= 0) {
-            return true;
-        }
-        return false;
-    }
-
-    function wishlistNotification() {
-        var heart = document.getElementById("wishlist");
-        sizeOfWishlist = wishlist.length - 1;
-        if (sizeOfWishlist > 0) {
-            heart.style.visibility = "visible";
-            heart.innerText = sizeOfWishlist;
-        } else {
-            heart.style.visibility = "hidden";
-        }
-    }
-
-    function cartListNotification() {
-        var bag = document.getElementById("cart");
-        if (cartList == null || cartList.length == 0) {
-            bag.style.visibility = "hidden";
-        } else {
-            bag.style.visibility = "visible";
-            bag.innerText = cartList.length;
-        }
-    }
-
-    function loadFunc() {
-        // Get wishlist cookie.
-        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)list\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-        var list = cookieValue.split(",");
-        wishlist = list.slice();
-
-        // Get cart list.
-        cartList = JSON.parse(sessionStorage.getItem("cartList"));
-        cartListNotification();
-
-        // Get item name.
-        var name = document.getElementById("name");
-        itemID = GetURLParameter("imageID");
-        name.innerText = "Product Name: " + itemID;
-
-        // Get Item details.
-        //if (shoeDetails == "") {
-        getItemDetails(itemID);
-        //} else {
-        //    alert("TODO: if here fix problem if never shown delete this if!!!");
-        //}
-
-        // Get item category.
-        var category = document.getElementById("category");
-        category.innerText = "Category: " + GetURLParameter("category");
-
-    }
-
-    function getItemDetails(id) {
-        let url = "/api/oneShoe?id=" + id;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: successGetOneShoe,
-            error: function () {
-                alert("Error in getting shoe details");
-            }
-        });
-    }
-
-    function successGetOneShoe(json) {
-        var shoe = JSON.parse(json);
-
-        // Get item price.
-        price = shoe.price;
-        document.getElementById("price").innerText = "$ " + price;
-
-        // Wishlist (button) view.
-        if (isInWishlist("wishlist" + itemID)) {
-            var itemWish = document.getElementById("itemWish");
-            itemWish.src = "remove.png";
-        }
-        wishlistNotification();
-
-        // Get item image.
-        var itemImage = document.getElementById("itemImage");
-        itemImage.src = "data:image/png;base64," + shoe.image;
-    }
-
-</script>
-
-<script>
-    let shoesList = [];
-    let pageNum = 1;
-    let selectedType = "";
-    function getShoesByType(type) {
-        selectedType = type.substring(1);
-        let url = "/api/shoes?type=" + selectedType + "&pageNum=" + pageNum;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: successGetShoes,
-            error: function () {
-                alert("Error in getting shoes");
-            }
-        });
-    }
-
-    function successGetShoes(json) {
-        var shoes = JSON.parse(json);
-        //alert(shoes[0].Id);
-        //alert(shoes[0].price);
-
-        // TODO: CHANGE 2 TO 20
-        for (var i = 0; i < 2; i++) {
-            var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
-            shoesList.push(itemDetails);
-        }
-        //alert(shoesList);
-
-        // Add to sessionStorage shoes list.
-        sessionStorage.setItem("shoesList" + selectedType + pageNum, JSON.stringify(shoesList));
-
-        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
-    }
-</script>
-
-<script>
-    //function goToWishlistPage() {
-    //    //alert(wishlist);
-    //    if (wishlist == null || wishlist == "" || wishlist == "null") {
-    //        window.location.href = "../Shop/wishlist.html";
-    //    }
-    //    for (var wish of wishlist) {
-    //        if (wish == "" || wish == "null") {
-    //            continue;
-    //        }
-    //        var id = wish.substr(8, wish.length - 1);
-    //        wishlistFunc(id);
-    //    }
-    //}
-
-    //function wishlistFunc(id) {
-    //    //let id = "sandals0";
-    //    let url = "/api/oneShoe?id=" + id;
-    //    $.ajax({
-    //        type: "GET",
-    //        url: url,
-    //        success: successGetOneShoeWish,
-    //        error: function () {
-    //            alert("Error in getting shoe details");
-    //        }
-    //    });
-    //}
-
-    //function goToCartPage() {
-    //    //alert(cartList);
-    //    if (cartList == null || cartList == "") {
-    //        window.location.href = "../cart.html";
-    //    }
-    //    for (var item of cartList) {
-    //        if (item == "" || item == "null") {
-    //            continue;
-    //        }
-    //        var id = item[0];
-    //        cartFunc(id);
-    //    }
-    //}
-
-    //function cartFunc(id) {
-    //    //let id = "sandals0";
-    //    let url = "/api/oneShoe?id=" + id;
-    //    $.ajax({
-    //        type: "GET",
-    //        url: url,
-    //        success: successGetOneShoeCart,
-    //        error: function () {
-    //            alert("Error in getting shoe details");
-    //        }
-    //    });
-    //}
-
-    //function successGetOneShoeWish(json) {
-    //    var shoe = JSON.parse(json);
-    //    var shoeDetails = [shoe.Id, shoe.image, shoe.price];
-
-    //    //
-    //    sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
-
-    //    window.location.href = "../Shop/wishlist.html";
-    //}
-
-    function successGetOneShoeCart(json) {
-        var shoe = JSON.parse(json);
-        var shoeDetails = [shoe.Id, shoe.image, shoe.price];
-
-        //
-        sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
-
-        window.location.href = "../cart.html";
-    }
-</script>
-
-<script>
-
-    function push_cart_item(item) {
-        for (var i = 0; i < cartList.length; i++) {
-            if (cartList[i][0] == item[0] && cartList[i][1] == item[1]) {
-                cartList[i][3] += item[3];
-                return;
-            }
-        }
-        cartList.push(item);
-    }
-
-    function addItemToCart() {
-
-        // cartlist intalization.
-        if (cartList == null) {
-            cartList = [];
-        }
-
-        quantity = count;
-        var itemDetails = [itemID, size, price, quantity];
-
-        // Add to cart
-        push_cart_item(itemDetails);
-        //alert(cartList);
-        cartListNotification();
-
-        sessionStorage.setItem("cartList", JSON.stringify(cartList));
-
-        addCartItemToSessionStorage(itemID);
-
-    }
-
-    function goToCartPage() {
-        setTimeout(function () {
-            window.location.href = "../cart.html";
-        }, 1500);
-    }
-
-    function addCartItemToSessionStorage(id) {
-        //let id = "sandals0";
-        let url = "/api/oneShoe?id=" + id;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: successGetOneShoeCart,
-            error: function () {
-                alert("Error in getting shoe details");
-            }
-        });
-    }
-
-    function successGetOneShoeCart(json) {
-        var shoe = JSON.parse(json);
-        var shoeDetails = [shoe.Id, shoe.image, shoe.price];
-
-        //
-        sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
-    }
-
-    function cartListNotification() {
-        var bag = document.getElementById("cart");
-        if (cartList == null || cartList.length == 0) {
-            bag.style.visibility = "hidden";
-        } else {
-            bag.style.visibility = "visible";
-            bag.innerText = cartList.length;
-        }
-    }
-</script>
-
-<!--herat button functionality-->
-<script>
-
-    function delete_item(id) {
-        for (var i = 0; i < wishlist.length; i++) {
-            if (wishlist[i] == id)
-                break
-        }
-        wishlist.splice(i, 1);
-    }
-
-    function push_item(id) {
-        for (var i = 0; i < wishlist.length; i++) {
-            if (wishlist[i] == id)
-                break;
-        }
-        wishlist.push(id);
-    }
-
-    function addToWishlist(id) {
-        clickOnWishImg = true;
-        var selectedItem = document.getElementById(id);
-        if (selectedItem.src.match("add.png")) {
-            // If fill change to clear
-            selectedItem.src = "remove.png";
-            selectedItem.parentElement.title = "Remove from wishlist";
-            push_item("wishlist" + itemID);
-        } else {
-            // If clear change to fill
-            selectedItem.src = "add.png";
-            selectedItem.parentElement.title = "Add to wishlist";
-            delete_item("wishlist" + itemID);
-
-        }
-        selectedItem.style.width = "28px";
-        selectedItem.style.height = "28px";
-
-        sessionStorage.setItem("wishlist", JSON.stringify(wishlist));
-        document.cookie = "list=" + wishlist;
-
-        addItemToSessionStorage(itemID);
-
-        wishlistNotification();
-    }
-
-
-    function goToWishlistPage() {
-        setTimeout(function () {
-            window.location.href = "../Shop/wishlist.html";
-        }, 1000);
-    }
-
-    function addItemToSessionStorage(id) {
-        let url = "/api/oneShoe?id=" + id;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: successGetOneShoeWish,
-            error: function () {
-                alert("Error in getting shoe details");
-            }
-        });
-    }
-
-    function successGetOneShoeWish(json) {
-        var shoe = JSON.parse(json);
-        var shoeDetails = [shoe.Id, shoe.image, shoe.price];
-
-        //
-        sessionStorage.setItem(shoe.Id, JSON.stringify(shoeDetails));
-    }
-
-</script>
-
-<!--Shoe size style-->
-<script>
-
-    let idLastSelected = "";
-    function selectedSize(id) {
-        var button = document.getElementById(id);
-        button.style.backgroundColor = "lightblue";
-        button.style.border = "1px solid black";
-        var lastBtn = document.getElementById(idLastSelected);
-        if (lastBtn != null) {
-            lastBtn.style.backgroundColor = '#bbb';
-            lastBtn.style.border = "none";
-            lastBtn.style = "dot";
-        }
-        //} else {
-        //    selectedSize = true;
-        //}
-
-        idLastSelected = id;
-        size = id;
-    }
-</script>
-
-<!--navbar functionality-->
-<script>
-    //window.onscroll = function () { myFunction() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-</script>
-
-<!--calculate amount of item-->
-<script>
-    function increase() {
-        count++;
-        document.getElementById("number").innerText = count;
-        if (count >= 9) {
-            document.getElementById("number").innerText = 9;
-            count = 9;
-        }
-    }
-
-    function decrease() {
-        count--;
-        document.getElementById("number").innerText = count;
-        if (count <= 1) {
-            document.getElementById("number").innerText = 1;
-            count = 1;
-        }
-    }
-
-</script>

@@ -11,34 +11,17 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.IO;
 using MongoDB.Libmongocrypt;
-//using NSubstitute.Core;
+
 
 namespace ShoesMakerWeb.Controllers
 {
-    public class Shoes
-    {
-        public string Id;
-        public string name;
-        public string type;
-        public byte[] picture;
-        public Double price;
-    }
-
-    public class ShoesDetaiils
-    {
-        public string Id { get; set; }
-        public byte[] image { get; set; }
-        public Double price { get; set; }
-
-    }
-
     [Route("api/[controller]")]
     [ApiController]
-    public class shoesController : ControllerBase
+    public class sortedShoesController : ControllerBase
     {
-        // GET: api/shoes?type="sandal"&index=0
+        // GET: api/sortedShoes?type="sandal"&order="ascending"&index=0
         [HttpGet]
-        public string GetAllShoes(string type, int pageNum)
+        public string GetSortedShoes(string type, string order, int pageNum)
         {
             var index = pageNum - 1;
             // Connect to mongoDB
@@ -48,22 +31,21 @@ namespace ShoesMakerWeb.Controllers
             var collection = database.GetCollection<Shoes>("shoes");
 
             var filter = Builders<Shoes>.Filter.Eq("type", type);
-            var doc = collection.Find(filter);
-
+            // Sort Shoes by price
+            var sortDefinition = Builders<Shoes>.Sort.Descending(a => a.price);
+            if (order == "ascending")
+            {
+                sortDefinition = Builders<Shoes>.Sort.Ascending(a => a.price);
+            }
+            var listofShoes = collection.Find(filter).Sort(sortDefinition).ToList();
 
             // TODO - CHANGE 2 TO BE 20.
-            //byte[] image = new byte[] { };
             List<ShoesDetaiils> ShoesList = new List<ShoesDetaiils>();
+
             for (int i = index * 20; i < index * 20 + 20; i++)
             {
-                var IdFilter = Builders<Shoes>.Filter.Eq("Id", type + i);
-                var indexDoc = collection.Find(IdFilter);
-
-                foreach (Shoes d in indexDoc.ToEnumerable())
-                {
-                    ShoesDetaiils shoe = new ShoesDetaiils { Id = d.Id, image = d.picture, price = d.price };
-                    ShoesList.Add(shoe);
-                }
+                ShoesDetaiils shoe = new ShoesDetaiils { Id = listofShoes[i].Id, image = listofShoes[i].picture, price = listofShoes[i].price };
+                ShoesList.Add(shoe);
             }
 
             var options = new JsonSerializerOptions { WriteIndented = true };
