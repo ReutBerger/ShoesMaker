@@ -233,6 +233,10 @@ td {
     padding: 10px;
 }
 
+.title {
+    background-color: #C8D5C5;
+}
+
 .delete {
     width: 15%;
     border-right: none;
@@ -264,12 +268,12 @@ td {
     font-weight: bold;
 }
 
-h3 {
-    color: darkgreen;
+.image {
+    width: 70%;
 }
 
-.title {
-    background-color: #C8D5C5;
+h3 {
+    color: darkgreen;
 }
 
 /*--------------------*/

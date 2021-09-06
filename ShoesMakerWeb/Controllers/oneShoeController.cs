@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Text.Json;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using MongoDB.Driver;
-using MongoDB.Bson;
-using System.IO;
-using MongoDB.Libmongocrypt;
-//using NSubstitute.Core;
 
 namespace ShoesMakerWeb.Controllers
 {

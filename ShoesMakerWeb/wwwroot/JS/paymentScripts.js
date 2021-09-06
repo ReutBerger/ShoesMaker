@@ -54,6 +54,5 @@ function updateView() {
 
 function submitPayment() {
     // TODO: ADD Massage attenion that not realy work!!
-    // TODO: check if the all fileds fill. => the message.
     alert("Finish Payment!!!");
 }

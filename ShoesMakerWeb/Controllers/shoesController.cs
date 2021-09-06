@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Text.Json;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using MongoDB.Driver;
-using MongoDB.Bson;
-using System.IO;
-using MongoDB.Libmongocrypt;
-//using NSubstitute.Core;
 
 namespace ShoesMakerWeb.Controllers
 {
@@ -47,14 +40,8 @@ namespace ShoesMakerWeb.Controllers
             // Get collection
             var collection = database.GetCollection<Shoes>("shoes");
 
-            var filter = Builders<Shoes>.Filter.Eq("type", type);
-            var doc = collection.Find(filter);
-
-
-            // TODO - CHANGE 2 TO BE 20.
-            //byte[] image = new byte[] { };
             List<ShoesDetaiils> ShoesList = new List<ShoesDetaiils>();
-            for (int i = index * 20; i < index * 20 + 20; i++)
+            for (int i = index * 50; i < index * 50 + 50; i++)
             {
                 var IdFilter = Builders<Shoes>.Filter.Eq("Id", type + i);
                 var indexDoc = collection.Find(IdFilter);

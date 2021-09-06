@@ -18,6 +18,7 @@ function getShoesfirstPage(type) {
 let clickOnWishImg = false;
 let sizeOfWishlist = 0;
 let sizeOfCartList = 0;
+let selectedOrder = "";
 
 let wishlist = [];
 let cartList = [];
@@ -37,12 +38,18 @@ function loadFunc() {
     // Set active page view.
     showActivePage();
 
-    // Get this page shoes list.
-    getShoesByType("sandals");
+    // Get this page shoes list - check if order by price.
+    selectedOrder = GetURLParameter("order");
+    if (selectedOrder == "" || selectedOrder == undefined) {
+        getShoesByType("sandals");
+    } else {
+        // Show item order by - selectedOrder.
+        sortedFunc(selectedOrder);
+    }
 
     // Get wishlist.
     wishlist = JSON.parse(sessionStorage.getItem("wishlist"));
-    if (wishlist == null) { //TODO: may delete
+    if (wishlist == null) {
         wishlist = [];
     }
 
@@ -135,8 +142,7 @@ function successGetShoes(json) {
     // Clean list from the prev page.
     shoesList = [];
 
-    // TODO: CHANGE 9 TO 20
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 50; i++) {
         var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
         shoesList.push(itemDetails);
     }
@@ -264,7 +270,13 @@ function prevPage() {
     if (pageNum == min) {
         pageNum = 1;
     }
-    window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
+    if (selectedOrder == "" || selectedOrder == undefined) {
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
+    }
+    else {
+        // Show item order by - selectedOrder.
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum + "&order=" + selectedOrder;
+    }
 }
 
 // Move for the next page.
@@ -273,12 +285,25 @@ function nextPage() {
     if (pageNum == max) {
         pageNum = 5;
     }
-    window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
+    if (selectedOrder == "" || selectedOrder == undefined) {
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
+    }
+    else {
+        // Show item order by - selectedOrder.
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum + "&order=" + selectedOrder;
+    }
 }
 
 // Move for the 'num' page.
 function getPage(num) {
-    window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + num;
+    if (selectedOrder == "" || selectedOrder == undefined) {
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + num;
+    }
+    else {
+        // Show item order by - selectedOrder.
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + num + "&order=" + selectedOrder;
+    }
+
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -318,4 +343,49 @@ function stickyFunction() {
     } else {
         navbar.classList.remove("sticky");
     }
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/* Sort item by price */
+
+// When order by button is pressed.
+function selectOrder() {
+    var select = document.getElementById('mySelect');
+    var val = select.options[select.selectedIndex].value;
+    if (val == 1) {
+        // Low to high price.
+        // TODO: change numPage to 1 ????????? show always first page of type when sort?????????
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum + "&order=ascending";
+    } else {
+        // val == 2 - High to low price.
+        window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum + "&order=descending";
+    }
+}
+
+// Get boots sorted from the DB.
+function sortedFunc(order) {
+    selectedOrder = order;
+    let url = "/api/sortedShoes?type=" + selectedType + "&order=" + order + "&pageNum=" + pageNum;
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: successGetSortedShoes,
+        error: function () {
+            alert("Error in getting shoes");
+        }
+    });
+}
+
+function successGetSortedShoes(json) {
+    var shoes = JSON.parse(json);
+
+    for (var i = 0; i < 50; i++) {
+        var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
+        shoesList.push(itemDetails);
+    }
+
+    // update view.
+    loadShoes();
 }

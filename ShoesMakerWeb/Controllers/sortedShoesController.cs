@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Text.Json;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using MongoDB.Driver;
-using MongoDB.Bson;
-using System.IO;
-using MongoDB.Libmongocrypt;
-
 
 namespace ShoesMakerWeb.Controllers
 {
@@ -39,10 +32,8 @@ namespace ShoesMakerWeb.Controllers
             }
             var listofShoes = collection.Find(filter).Sort(sortDefinition).ToList();
 
-            // TODO - CHANGE 2 TO BE 20.
             List<ShoesDetaiils> ShoesList = new List<ShoesDetaiils>();
-
-            for (int i = index * 20; i < index * 20 + 20; i++)
+            for (int i = index * 50; i < index * 50 + 50; i++)
             {
                 ShoesDetaiils shoe = new ShoesDetaiils { Id = listofShoes[i].Id, image = listofShoes[i].picture, price = listofShoes[i].price };
                 ShoesList.Add(shoe);

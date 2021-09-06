@@ -56,7 +56,7 @@
                     </button>
                 </li>
                 <li class="floatRight">
-                    <button onclick="goToWishlistPage()">
+                    <button onclick="goToWishlistPage()" >
                         <span><i class='far fa-heart' style='font-size: 20px'></i></span>
                         <span class="badge" id="wishlist" style="right: 5px;">0</span>
                     </button>
@@ -93,7 +93,7 @@
 
                 <!-- Items amount -->
                 <div class="column numD">
-                    <p class="amountText">100 Items</p>
+                    <p class="amountText">250 Items</p>
                 </div>
             </div>
 
@@ -144,61 +144,3 @@
 </body>
 </html>
 
-<!--THIS IS THE NEW SCRIPT FOR THE SORT-->
-<script>
-    let sortedShoesList = [];
-    let order = "ascending";
-    //let pageNum = 1;
-
-    function sortedFunc(order) {
-        let type = "boots";
-
-        let url = "/api/sortedShoes?type=" + type + "&order=" + order + "&pageNum=" + pageNum;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: successGetSortedShoes,
-            error: function () {
-                alert("Error in getting shoes");
-            }
-        });
-    }
-
-    function successGetSortedShoes(json) {
-        shoesList = [];
-        var shoes = JSON.parse(json);
-
-        // TODO: CHANGE 2 TO 20
-        for (var i = 0; i < 20; i++) {
-            var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
-            shoesList.push(itemDetails);
-        }
-        //alert(sortedShoesList);
-
-        // Update sessionStorage after cart list changing.
-        //sessionStorage.setItem("sortedShoesList", JSON.stringify(sortedShoesList));
-
-        //document.getElementById("bootsImage").src = "data:image/png;base64," + shoes;
-        alert(sortedShoesList);
-
-        // update view.
-        var parent = document.getElementById("itemsContainer");
-        parent.innerHTML = '';
-        loadShoes();
-    }
-</script>
-
-<!--Select bar - Order by-->
-<script>
-    function selectOrder() {
-        var select = document.getElementById('mySelect');
-        var val = select.options[select.selectedIndex].value;
-        if (val == 1) {
-            // Low to high price.
-            sortedFunc("ascending");
-        } else {
-            // val == 2 - High to low price.
-            sortedFunc("descending");
-        }
-    }
-</script>
