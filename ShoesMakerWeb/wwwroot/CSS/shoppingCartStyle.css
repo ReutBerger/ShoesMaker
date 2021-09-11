@@ -1,20 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-    background-color: #f2f2f2;
-    /* Disable copying text in web-page*/
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Top image background */
+﻿/* Top image background */
 .topBackground {
     background-image: url("../Images/cart.jpg");
     height: 40%;
@@ -24,7 +8,7 @@ body, html {
 }
 
 /* Position text in the middle of the page/image */
-.bg-text {
+.bg-text-cart {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0, 0.3);
     color: white;
@@ -38,110 +22,6 @@ body, html {
     padding: 20px;
     text-align: center;
     font-family: 'Work Sans', sans-serif;
-}
-
-/*------------------------------*/
-
-/* Navbar style */
-
-ul {
-    padding: 0;
-    list-style: none;
-    background: #f2f2f2;
-}
-
-    ul li {
-        display: inline-block;
-        position: relative;
-        line-height: 21px;
-        text-align: left;
-    }
-
-        ul li a.active {
-            background-color: darkgreen;
-            color: white;
-            padding: 8px 30px;
-            margin: 0 360px 0 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        ul li a {
-            display: block;
-            padding: 8px 30px 8px 20px;
-            color: darkgreen;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-            ul li a:hover {
-                color: #fff;
-                background: #939393;
-            }
-
-        /* Cart and wish btn */
-        ul li button {
-            display: block;
-            padding: 7px 25px;
-            color: darkgreen;
-            font-size: 20px;
-            border: none;
-            margin: 0;
-            background: #f2f2f2;
-        }
-
-            ul li button:hover {
-                color: #fff;
-                cursor: pointer;
-                background: #939393;
-            }
-
-        ul li ul.dropdown {
-            min-width: 100%;
-            background: #f2f2f2;
-            display: none;
-            position: absolute;
-            z-index: 999;
-            left: 0;
-        }
-
-        /* Display the dropdown */
-        ul li:hover ul.dropdown {
-            display: block;
-        }
-
-        ul li ul.dropdown li {
-            display: block;
-        }
-
-            ul li ul.dropdown li button {
-                border: none;
-                background: #f2f2f2;
-                font-size: 20px;
-                color: darkgreen;
-                padding: 8px 15px 8px 20px;
-                font-family: 'Raleway', sans-serif;
-            }
-
-                ul li ul.dropdown li button:hover {
-                    color: #fff;
-                    background-color: darkgrey;
-                    width: 100%;
-                    text-align: left;
-                    cursor: pointer;
-                }
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #f2f2f2;
-    z-index: 10;
-    box-shadow: 0 1px grey;
-}
-
-.floatRight {
-    float: right;
 }
 
 /*------------------------------*/
@@ -352,7 +232,6 @@ h3 {
     margin: 15px 0 10px 0;
     color: white;
     background-color: grey;
-    border-radius: 15px;
     cursor: pointer;
     height: 50px;
 }
@@ -375,7 +254,6 @@ h3 {
     margin: 15px 0 10px 0;
     color: white;
     background-color: grey;
-    border-radius: 15px;
     cursor: pointer;
     height: 50px;
 }
@@ -440,87 +318,3 @@ h3 {
         color: black;
         background-color: gold;
     }
-
-/*------------------------------*/
-
-/* Top button */
-
-#backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    height: 55px;
-    width: 55px;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-    #backToTopBtn:hover {
-        background-color: white;
-        border: 2px solid black;
-        color: black;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-/*------------------------------*/
-
-/* Footer */
-
-#footer {
-    padding: 30px;
-    text-align: center;
-    background-color: #C8D5C5;
-}
-
-.love {
-    font-size: 16px;
-    color: firebrick;
-}
-
-/*------------------------------*/
-
-/* Notifications */
-
-.badge {
-    position: absolute;
-    top: 2px;
-    right: 10px;
-    padding: 4px 4px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    font-size: 10px;
-    visibility: hidden;
-    text-align: center;
-}
-
-/*------------------------------*/
-
-/* Loading */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba( 255, 255, 255, .8 ) url('https://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
-}
-
-body.loading .modal {
-    overflow: hidden;
-}
-
-body.loading .modal {
-    display: block;
-}

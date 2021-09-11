@@ -23,11 +23,17 @@ let wishlist = [];
 let cartList = [];
 
 // Loading animation.
-$body = $("body");
-$(document).on({
-    ajaxStart: function () { $body.addClass("loading"); },
-    ajaxStop: function () { $body.removeClass("loading"); }
-});
+try {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); }
+    });
+}
+catch (err) {
+    showError("Network connection error");
+}
+
 
 window.onload = loadFunc();
 
@@ -67,33 +73,49 @@ function GetURLParameter(sParam) {
 // Get from DB this shoe details.
 function getItemDetails(id) {
     let url = "/api/oneShoe?id=" + id;
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: successGetOneShoe,
-        error: function () {
-            alert("Error in getting shoe details");
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetOneShoe,
+            error: function () {
+                alert("Error in getting shoe details");
+            }
+        });
+    } catch (err) {
+        showError("Error in getting shoe details");
+    }
 }
 
 function successGetOneShoe(json) {
-    var shoe = JSON.parse(json);
+    if (json == "error") {
+        showError("DB connection failed, try reloading the page");
+    } else {
+        var shoe = JSON.parse(json);
 
-    // Get item price.
-    price = shoe.price;
-    document.getElementById("price").innerText = "$ " + price;
+        // Get item price.
+        price = shoe.Price;
+        document.getElementById("price").innerText = "$ " + price;
 
-    // Wishlist (button) view.
-    if (isInWishlist("wishlist" + itemID)) {
-        var itemWish = document.getElementById("itemWish");
-        itemWish.src = "../Images/remove.png";
+        // Wishlist (button) view.
+        if (isInWishlist("wishlist" + itemID)) {
+            var itemWish = document.getElementById("itemWish");
+            itemWish.src = "../Images/remove.png";
+        }
+        wishlistNotification();
+
+        // Get item image.
+        var itemImage = document.getElementById("itemImage");
+        itemImage.src = "data:image/png;base64," + shoe.Image;
     }
-    wishlistNotification();
+}
 
-    // Get item image.
-    var itemImage = document.getElementById("itemImage");
-    itemImage.src = "data:image/png;base64," + shoe.image;
+// Print error message.
+function showError(message) {
+    let x = document.getElementById("snackbar");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
 // Check if this shoe is in wishlist.

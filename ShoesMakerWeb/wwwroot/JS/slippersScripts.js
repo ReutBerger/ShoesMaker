@@ -25,11 +25,16 @@ let cartList = [];
 let shoesList = [];
 
 // Loading animation.
-$body = $("body");
-$(document).on({
-    ajaxStart: function () { $body.addClass("loading"); },
-    ajaxStop: function () { $body.removeClass("loading"); loadWishlist(); }
-});
+try {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); loadWishlist(); }
+    });
+}
+catch (err) {
+    showError("Network connection error");
+}
 
 window.onload = loadFunc();
 
@@ -123,32 +128,48 @@ function showActivePage() {
     btn.className = "active";
 }
 
-// Get slippers from the DB.
+// Get boots from the DB.
 function getShoesByType(type) {
     let url = "/api/shoes?type=" + type + "&pageNum=" + pageNum;
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: successGetShoes,
-        error: function () {
-            alert("Error in getting shoes");
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetShoes,
+            error: function () {
+                alert("Error in getting shoes");
+            }
+        });
+    } catch (err) {
+        showError("Error in getting shoes");
+    }
 }
 
 function successGetShoes(json) {
-    var shoes = JSON.parse(json);
+    if (json == "error") {
+        showError("DB connection failed, try reloading the page");
+    } else {
+        var shoes = JSON.parse(json);
 
-    // Clean list from the prev page.
-    shoesList = [];
+        // Clean list from the prev page.
+        shoesList = [];
 
-    for (var i = 0; i < 50; i++) {
-        var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
-        shoesList.push(itemDetails);
+        for (var i = 0; i < 50; i++) {
+            var itemDetails = [shoes[i].Id, shoes[i].Image, shoes[i].Price];
+            shoesList.push(itemDetails);
+        }
+
+        // Load shoes view.
+        loadShoes();
     }
+}
 
-    // Load shoes view.
-    loadShoes();
+// Print error message.
+function showError(message) {
+    let x = document.getElementById("snackbar");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
 // Wishlist notification visibility.
@@ -367,25 +388,32 @@ function selectOrder() {
 function sortedFunc(order) {
     selectedOrder = order;
     let url = "/api/sortedShoes?type=" + selectedType + "&order=" + order + "&pageNum=" + pageNum;
-
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: successGetSortedShoes,
-        error: function () {
-            alert("Error in getting shoes");
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetSortedShoes,
+            error: function () {
+                alert("Error in getting shoes");
+            }
+        });
+    } catch (err) {
+        showError("Error in getting shoes");
+    }
 }
 
 function successGetSortedShoes(json) {
-    var shoes = JSON.parse(json);
+    if (json == "error") {
+        showError("DB connection failed, try reloading the page");
+    } else {
+        var shoes = JSON.parse(json);
 
-    for (var i = 0; i < 50; i++) {
-        var itemDetails = [shoes[i].Id, shoes[i].image, shoes[i].price];
-        shoesList.push(itemDetails);
+        for (var i = 0; i < 50; i++) {
+            var itemDetails = [shoes[i].Id, shoes[i].Image, shoes[i].Price];
+            shoesList.push(itemDetails);
+        }
+
+        // update view.
+        loadShoes();
     }
-
-    // update view.
-    loadShoes();
 }

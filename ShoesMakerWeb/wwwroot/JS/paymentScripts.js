@@ -2,6 +2,7 @@
 
 let cartList = [];
 let sumTotal = 0;
+
 window.onload = loadFunc();
 
 function loadFunc() {

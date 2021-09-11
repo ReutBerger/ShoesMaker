@@ -18,12 +18,17 @@ let wishlist = [];
 let cartList = [];
 let list = [];
 
-// loading animation.
-$body = $("body");
-$(document).on({
-    ajaxStart: function () { $body.addClass("loading"); },
-    ajaxStop: function () { $body.removeClass("loading"); showView();}
-});
+// Loading animation.
+try {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); showView(); }
+    });
+}
+catch (err) {
+    showError("Network connection error");
+}
 
 window.onload = loadFunc();
 
@@ -140,22 +145,38 @@ function goToWishlistPage() {
 
 function wishlistFunc(id) {
     let url = "/api/oneShoe?id=" + id;
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: successGetOneShoeWish,
-        error: function () {
-            alert("Error in getting shoe details");
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetOneShoeWish,
+            error: function () {
+                alert("Error in getting shoe details");
+            }
+        });
+    } catch (err) {
+        showError("Error in getting shoe details");
+    }
 }
 
 function successGetOneShoeWish(json) {
-    var shoe = JSON.parse(json);
-    var shoeDetails = [shoe.Id, shoe.image, shoe.price];
+    if (json == "error") {
+        showError("DB connection failed, try reloading the page");
+    } else {
+        var shoe = JSON.parse(json);
+        var shoeDetails = [shoe.Id, shoe.Image, shoe.Price];
 
-    // Add to local list.
-    list.push(shoeDetails);
+        // Add to local list.
+        list.push(shoeDetails);
+    }
+}
+
+// Print error message.
+function showError(message) {
+    let x = document.getElementById("snackbar");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
 /*--------------------------------------------------------------------------------*/

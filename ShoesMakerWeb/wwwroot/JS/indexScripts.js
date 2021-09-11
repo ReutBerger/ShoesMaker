@@ -34,7 +34,6 @@ function loadFunc() {
     // Get cart list.
     cartList = JSON.parse(sessionStorage.getItem("cartList"));
     cartListNotification();
-
 }
 
 // Wishlist notification visibility.

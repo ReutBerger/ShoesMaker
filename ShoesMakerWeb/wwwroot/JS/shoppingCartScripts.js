@@ -21,11 +21,16 @@ let cartSize = 0;
 const map = new Map();
 
 // loading animation.
-$body = $("body");
-$(document).on({
-    ajaxStart: function () { $body.addClass("loading"); },
-    ajaxStop: function () { $body.removeClass("loading"); showView(true); }
-});
+try {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); showView(true); }
+    });
+}
+catch (err) {
+    showError("Network connection error");
+}
 
 window.onload = loadFunc();
 
@@ -166,21 +171,37 @@ function goToCartPage() {
 
 function cartFunc(id) {
     let url = "/api/oneShoe?id=" + id;
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: successGetOneShoeCart,
-        error: function () {
-            alert("Error in getting shoe details");
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: successGetOneShoeCart,
+            error: function () {
+                alert("Error in getting shoe details");
+            }
+        });
+    } catch (err) {
+        showError("Error in getting shoe details");
+    } 
 }
 
 function successGetOneShoeCart(json) {
-    var shoe = JSON.parse(json);
+    if (json == "error") {
+        showError("DB connection failed, try reloading the page");
+    } else {
+        var shoe = JSON.parse(json);
 
-    // Add to local list.
-    map.set(shoe.Id, shoe.image);
+        // Add to local list.
+        map.set(shoe.Id, shoe.Image);
+    }
+}
+
+// Print error message.
+function showError(message) {
+    let x = document.getElementById("snackbar");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
 /*--------------------------------------------------------------------------------*/
