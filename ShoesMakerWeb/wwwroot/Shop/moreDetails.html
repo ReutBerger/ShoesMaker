@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Web icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/favicon.ico">
+    <!-- Heart icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Cart icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+    <!-- Refernce to style -->
+    <link rel="stylesheet" type="text/css" href="../CSS/globalStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/moreDetailsStyle.css" />
+
+    <title>
+        REN Shoes | Shoe Details
+    </title>
+</head>
+<body>
+    <!-- Error message -->
+    <div id="snackbar"></div>
+
+    <div class="modal"><!-- Place at bottom of page --></div>
+    <!-- Navbar -->
+    <div id="navbar">
+        <ul>
+            <li><a class="active" id="homePage" href="../index.html">REN Shoes</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+                <a>Shop &#9662;</a>
+                <ul class="dropdown">
+                    <li><button id="tboots" onclick="getShoesByType(id)">Boots</button></li>
+                    <li><button id="tsandals" onclick="getShoesByType(id)">Sandals</button></li>
+                    <li><button id="tslippers" onclick="getShoesByType(id)">Slippers</button></li>
+                    <li><button id="tsneakers" onclick="getShoesByType(id)">Sneakers</button></li>
+                </ul>
+            </li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li class="floatRight">
+                <button onclick="goToCartPage()">
+                    <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
+                    <span class="badge" id="cart">0</span>
+                </button>
+            </li>
+            <li class="floatRight">
+                <button onclick="goToWishlistPage()">
+                    <span><i class='far fa-heart' style='font-size: 20px'></i></span>
+                    <span class="badge" id="wishlist" style="right: 5px;">0</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page design -->
+    <div class="containerDetailes">
+        <div class="row">
+
+            <!-- Shoe image -->
+            <div class="column image">
+                <img id="itemImage">
+            </div>
+
+            <!-- Shoe details -->
+            <div class="column details">
+                <p id="category">Category: Boots</p>
+                <p id="name">-Item name-</p>
+                <h1 id="price"></h1>
+
+                <br />
+                <br />
+
+                <!-- Shoe size -->
+                <p>Select size:</p>
+                <div class="row" id="size">
+                    <span class="dot" onclick="selectedSize(id)" id="35">35</span>
+                    <span class="dot" onclick="selectedSize(id)" id="36">36</span>
+                    <span class="dot" onclick="selectedSize(id)" id="37">37</span>
+                    <span class="dot" onclick="selectedSize(id)" id="38">38</span>
+                    <span class="dot" onclick="selectedSize(id)" id="39">39</span>
+                    <span class="dot" onclick="selectedSize(id)" id="40">40</span>
+                    <span class="dot" onclick="selectedSize(id)" id="41">41</span>
+                    <span class="dot" onclick="selectedSize(id)" id="42">42</span>
+                </div>
+
+                <br />
+
+                <!-- Shoe quantity -->
+                <p>Choose quantity:</p>
+                <div class="row rowQuantityStyle">
+                    <div class="column quantity">
+                        <button onclick="decrease()" class="btn">-</button>
+                    </div>
+                    <div class="column quantity">
+                        <p class="num" id="number"> 1 </p>
+                    </div>
+                    <div class="column quantity">
+                        <button onclick="increase()" class="btn">+</button>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                <!-- Buttons -->
+                <div class="row">
+                    <div class="column cart">
+                        <button id="cart" class="addToCartBtn" onclick="addItemToCart()" title="Click to add this shoe to Shopping cart!">ADD TO CART <span><i class="fa fa-shopping-bag" style="font-size:18px;"></i></span></button>
+                    </div>
+                    <div class="column">
+                        <button class="addToWishBtn" title="Click to add this shoe to wishlist!">
+                            <img class="wishlistBtnImg" onclick="addToWishlist(id)" id="itemWish" src="../Images/add.png" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <hr />
+        <p>Copyright © 2021 All rights reserved | This web is made with <span class="love">&#x2661;</span> by REN</p>
+    </div>
+
+    <!-- Page functionality -->
+    <script type="text/javascript" src="../JS/mainScripts.js"></script>
+    <script type="text/javascript" src="../JS/moreDetailsScripts.js"></script>
+
+</body>
+</html>

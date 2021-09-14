@@ -1,0 +1,91 @@
+﻿/* Titles */
+
+#pageTitle {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#firstSubTitle {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+#secoundSubTitle {
+    padding-left: 0px;
+}
+
+#thirdSubTitle {
+    padding-left: 15px;
+}
+
+/*------------------------------*/
+
+/* Cart summary */
+
+#cartLength {
+    background-color: gray;
+    color: white;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 22px;
+    padding: 4px 5px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#price {
+    font-family: 'Work Sans', sans-serif;
+}
+
+#total {
+    font-weight: bold;
+    color: forestgreen;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#totalPrice {
+    color: forestgreen;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+
+/*------------------------------*/
+
+/* Navbar */
+
+#green {
+    color: darkgreen;
+}
+
+    #green:hover {
+        color: white;
+    }
+
+#cart {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    padding: 4px 4px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    visibility: hidden;
+    text-align: center;
+}
+
+#wishlist {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    padding: 4px 4px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    visibility: hidden;
+    text-align: center;
+}

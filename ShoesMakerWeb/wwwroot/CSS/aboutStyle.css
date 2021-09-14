@@ -1,0 +1,119 @@
+﻿/* Top image background */
+.topBackground {
+    background-image: url("../Images/about.jpg");
+    height: 70%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*------------------------------*/
+
+/* Page design */
+
+.titleContainer {
+    padding:50px 0 10px 0;
+    background-color: #E4A16A;
+    line-height: 60%;
+    text-align: center;
+}
+
+#type {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.story {
+    background-image: url('../Images/aboutBackground1.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+}
+
+.storyTitle {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 100px;
+    padding-left: 15%;
+    color: darkgreen;
+}
+
+.storyText {
+    padding-left: 15%;
+    font-size: 20px;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    height: 230px;
+    width: 35%;
+    background-color: white;
+    border-radius: 20px;
+    border: 4px double green;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.left {
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+.right {
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+.notef {
+    background-image: url('../Images/aboutBackground2.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 450px;
+    margin-bottom: 100px;
+}
+
+.notefTitle {
+    font-size: 36px;
+    font-weight: bold;
+    color: darkgreen;
+    line-height: 5px;
+}
+
+.notefText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/*------------------------------*/
+
+/* Meet the team button */
+
+.btnTeam {
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #939393;
+    cursor: pointer;
+    text-align: center;
+}
+
+    .btnTeam:hover {
+        border: 1px solid black;
+        color: black;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }

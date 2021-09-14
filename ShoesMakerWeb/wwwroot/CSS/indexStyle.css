@@ -1,0 +1,75 @@
+﻿/* Top image background */
+.topBackground {
+    background-image: url("../Images/topBackground.png");
+    height: 70%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*------------------------------*/
+
+/* Catergory Buttons */
+
+.container {
+    background-color: #f2f2f2;
+    padding: 100px 200px 100px 200px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    height: 350px;
+}
+
+    .column:hover {
+        transform: scale(0.9);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+.boots {
+    background-image: url("../Images/boots.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sandals {
+    background-image: url("../Images/sandals.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slippers {
+    background-image: url("../Images/slippers.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sneakers {
+    background-image: url("../Images/sneakers.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text {
+    color: white;
+    margin: 15px 35px 0 35px;
+    font-size: 34px;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.right {
+    float: right;
+}

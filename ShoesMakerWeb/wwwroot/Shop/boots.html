@@ -1,10 +1,153 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Web icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/favicon.ico">
+    <!-- Heart icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- Append  -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Cart icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Heebo:wght@100&family=Rubik:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+
+    <!-- Refernce to style -->
+    <link rel="stylesheet" type="text/css" href="../CSS/globalStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/shopGlobalStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/bootsStyle.css" />
+
+    <title>
+        REN Shoes | Shop - Boots
+    </title>
 </head>
 <body>
-    <h1> BOOTS!</h1>
+    <!-- Error message -->
+    <div id="snackbar"></div>
+
+    <div class="modal"><!-- Place at bottom of page --></div>
+    <div class="topBackground">
+        <br />
+        <br />
+        <!-- Navbar -->
+        <div id="navbar">
+            <ul>
+                <li><a class="active" id="homePage" href="../index.html">REN Shoes</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li>
+                    <a>Shop &#9662;</a>
+                    <ul class="dropdown">
+                        <li><button id="tboots" onclick="getShoesfirstPage(id)">Boots</button></li>
+                        <li><button id="tsandals" onclick="getShoesfirstPage(id)">Sandals</button></li>
+                        <li><button id="tslippers" onclick="getShoesfirstPage(id)">Slippers</button></li>
+                        <li><button id="tsneakers" onclick="getShoesfirstPage(id)">Sneakers</button></li>
+                    </ul>
+                </li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li class="floatRight">
+                    <button onclick="goToCartPage()">
+                        <span><i class="fa fa-shopping-bag" style="font-size:20px;"></i></span>
+                        <span class="badge" id="cart">0</span>
+                    </button>
+                </li>
+                <li class="floatRight">
+                    <button onclick="goToWishlistPage()">
+                        <span><i class='far fa-heart' style='font-size: 20px'></i></span>
+                        <span class="badge" id="wishlist" style="right: 5px;">0</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="bg-text">REN</div>
+    </div>
+
+    <!-- Page title -->
+    <br />
+    <br />
+    <h1 class="title">BOOTS</h1>
+    <hr style="height:3px;width:20%;" />
+    <br />
+
+    <!-- Page design -->
+    <div class="row">
+
+        <div class="column sides">
+            <br />
+        </div>
+
+        <div class="column right">
+            <div class="row">
+                <!-- Order by -->
+                <div class="column select">
+                    <select class="order-select" id="mySelect" onChange="selectOrder()">
+                        <option value="" selected disabled hidden>Order By</option>
+                        <option value="1">Low to high price</option>
+                        <option value="2">High to low price</option>
+                    </select>
+                </div>
+
+                <!-- Items amount -->
+                <div class="column numD">
+                    <p class="amountText">250 Items</p>
+                </div>
+            </div>
+
+            <div id="itemsContainer">
+                <!-- Show page items -->
+            </div>
+
+            <br />
+            <br />
+
+            <!-- Pagination -->
+            <row>
+                <div class="center">
+                    <div class="pagination">
+                        <a onclick="prevPage()">&laquo;</a>
+                        <a id="1" onclick="getPage(id)">1</a>
+                        <a id="2" onclick="getPage(id)">2</a>
+                        <a id="3" onclick="getPage(id)">3</a>
+                        <a id="4" onclick="getPage(id)">4</a>
+                        <a id="5" onclick="getPage(id)">5</a>
+                        <a onclick="nextPage()">&raquo;</a>
+                    </div>
+                </div>
+            </row>
+
+            <br />
+            <br />
+            <br />
+        </div>
+
+        <br />
+
+        <div class="column sides">
+            <br />
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <hr />
+        <p>Copyright © 2021 All rights reserved | This web is made with <span class="love">&#x2661;</span> by REN</p>
+    </div>
+    <button onclick="topFunction()" id="backToTopBtn" title="Back to top">&#x1F851;</button>
+
+    <!-- Page functionality -->
+    <script type="text/javascript" src="../JS/bootsScripts.js"></script>
+    <script type="text/javascript" src="../JS/mainScripts.js"></script>
+    <script type="text/javascript" src="../JS/shopMainScripts.js"></script>
+
 </body>
 </html>
+

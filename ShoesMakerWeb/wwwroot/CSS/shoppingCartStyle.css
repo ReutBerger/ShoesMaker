@@ -1,0 +1,320 @@
+﻿/* Top image background */
+.topBackground {
+    background-image: url("../Images/cart.jpg");
+    height: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text-cart {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.3);
+    color: white;
+    font-size: 40px;
+    border: 2px solid #f1f1f1;
+    position: relative;
+    top: 20%;
+    left: 5%;
+    z-index: 1;
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*------------------------------*/
+
+/** Page design **/
+
+#cartContainer {
+    padding: 80px 0 80px 0;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+/* Empty cart view */
+
+#emptyMassageContainer {
+    line-height: 10px;
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    visibility: hidden;
+    margin: 0 10% 0 10%;
+    background-color: #ffffcc;
+    padding: 5px 0 50px 0;
+}
+
+.massage {
+    color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.emptyImg {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.text {
+    margin-bottom: 50px;
+}
+
+.emptyBtn {
+    text-decoration: none;
+    border: none;
+    padding: 15px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+    .emptyBtn:hover {
+        border: 1px solid black;
+        color: black;
+        background-color: goldenrod;
+    }
+
+/*--------------------*/
+
+/* Product table view */
+
+#showTableContainer {
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    margin: 0 10% 0 10%;
+    top: 80px;
+    left: 0px;
+    width: 80%;
+    font-family: 'Work Sans', sans-serif;
+    padding: 20px;
+    visibility: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    padding: 15px;
+}
+
+td {
+    padding: 10px;
+}
+
+.title {
+    background-color: #C8D5C5;
+}
+
+.delete {
+    width: 15%;
+    border-right: none;
+}
+
+.imageT {
+    width: 15%;
+    border-left: none;
+    border-right: none;
+}
+
+.details {
+    border-left: none;
+    border-right: none;
+    width: 15%;
+    text-align: left;
+}
+
+.th-price {
+    width: 15%;
+}
+
+.th-quantity {
+    width: 25%;
+}
+
+.total {
+    width: 15%;
+    font-weight: bold;
+}
+
+.image {
+    width: 70%;
+}
+
+h3 {
+    color: darkgreen;
+}
+
+/*--------------------*/
+
+/* Quantity buttons view */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 0 5px 0 5px;
+    text-align: left;
+}
+
+.rowAmountStyle {
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 2px solid #ddd;
+    margin-left: 25%;
+    width: 50%;
+}
+
+.sizeBtn {
+    font-size: 18px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    margin: 2px 0px 2px 0px;
+    cursor: pointer;
+}
+
+.num {
+    font-size: 21px;
+    margin: 0;
+    padding: 2px 10px 2px 7px;
+    text-align: center;
+    width: 25px;
+}
+
+/*--------------------*/
+
+/* Delete buttons view */
+
+.deleteBtn {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    font-size: 28px;
+    padding: 5px 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+    .deleteBtn:hover {
+        border: 1px solid darkred;
+        color: darkred;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    }
+
+/*--------------------*/
+
+/* Clean button view */
+
+.btn {
+    padding: 0;
+}
+
+.cleanBtn {
+    border: none;
+    padding: 15px;
+    margin: 15px 0 10px 0;
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+    height: 50px;
+}
+
+    .cleanBtn:hover {
+        border: 2px solid darkred;
+        color: darkred;
+        background-color: white;
+        font-weight: bold;
+    }
+
+/*--------------------*/
+
+/* Continue button view */
+
+.continueBtn {
+    text-decoration: none;
+    border: none;
+    padding: 15px;
+    margin: 15px 0 10px 0;
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+    height: 50px;
+}
+
+    .continueBtn:hover {
+        border: 2px solid grey;
+        color: grey;
+        background-color: white;
+    }
+
+/*--------------------*/
+
+/* Summary view */
+
+.sumT {
+    margin-top: 10px;
+    width: 60%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.sides {
+    margin-top: 10px;
+    width: 20%;
+}
+
+.midd {
+    padding: 25px 0 15px 0;
+    width: 20%;
+    text-align: center;
+}
+
+.sumText {
+    padding: 25px 0 15px 0;
+    width: 40%;
+    text-align: center;
+    font-size: 26px;
+}
+
+.sumContainer {
+    margin-top: 20px;
+    margin-left: 35%;
+    width: 30%;
+    background-color: #f2f2f2;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.checkoutBtn {
+    border: none;
+    padding: 15px 10px 15px 10px;
+    margin: 0 0 15px 0;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    height: 50px;
+}
+
+    .checkoutBtn:hover {
+        border: 2px solid black;
+        color: black;
+        background-color: gold;
+    }
