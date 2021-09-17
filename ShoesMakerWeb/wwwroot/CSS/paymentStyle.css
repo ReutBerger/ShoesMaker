@@ -48,8 +48,6 @@
     font-family: 'Work Sans', sans-serif;
 }
 
-
-
 /*------------------------------*/
 
 /* Navbar */
@@ -88,4 +86,10 @@
     color: white;
     visibility: hidden;
     text-align: center;
+}
+/*------------------------------*/
+
+.required:after {
+    content:" *";
+    color: red;
 }
