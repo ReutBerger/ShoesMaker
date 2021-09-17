@@ -1,26 +1,10 @@
-﻿/* Shop buttons functionality */
-
-let selectedType = "";
-let pageNum = 1;
-
-// When one of shoes type button is pressed.
-function getShoesByType(type) {
-    selectedType = type.substring(1);
-    window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
-}
-
-/*--------------------------------------------------------------------------------*/
-
-/* Load page functionality */
+﻿/* Load page functionality */
 
 let itemID = "";
 let size = "";
 let price = "";
 let quantity = "";
 let count = 1;
-
-let wishlist = [];
-let cartList = [];
 
 // Loading animation.
 try {
@@ -127,29 +111,6 @@ function isInWishlist(id) {
     return false;
 }
 
-// Wishlist notification visibility.
-function wishlistNotification() {
-    var heart = document.getElementById("wishlist");
-
-    if (wishlist != null && wishlist.length > 0) {
-        heart.style.visibility = "visible";
-        heart.innerText = wishlist.length;
-    } else {
-        heart.style.visibility = "hidden";
-    }
-}
-
-// Cart notification visibility.
-function cartListNotification() {
-    var bag = document.getElementById("cart");
-    if (cartList == null || cartList.length == 0) {
-        bag.style.visibility = "hidden";
-    } else {
-        bag.style.visibility = "visible";
-        bag.innerText = cartList.length;
-    }
-}
-
 /*--------------------------------------------------------------------------------*/
 
 /* Wishlist Button functionality */
@@ -197,11 +158,6 @@ function push_item(id) {
     wishlist.push(id);
 }
 
-// When a heart button is pressed.
-function goToWishlistPage() {
-     window.location.href = "../Shop/wishlist.html";
-}
-
 /*--------------------------------------------------------------------------------*/
 
 /* Cart Button functionality */
@@ -238,11 +194,6 @@ function push_cart_item(item) {
         }
     }
     cartList.push(item);
-}
-
-// When a bag button is pressed.
-function goToCartPage() {
-    window.location.href = "../cart.html";
 }
 
 /*--------------------------------------------------------------------------------*/

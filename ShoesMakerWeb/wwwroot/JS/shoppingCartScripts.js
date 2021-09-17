@@ -1,20 +1,5 @@
-﻿/* Shop buttons functionality */
+﻿/* Load page functionality */
 
-let selectedType = "";
-let pageNum = 1;
-
-// When one of shoes type button is pressed.
-function getShoesByType(type) {
-    selectedType = type.substring(1);
-    window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
-}
-
-/*--------------------------------------------------------------------------------*/
-
-/* Load page functionality */
-
-let wishlist = [];
-let cartList = [];
 let quantity = [0];
 let subtotal = 0;
 let cartSize = 0;
@@ -50,29 +35,6 @@ function loadFunc() {
     } else {
         getAllCartlist();
         cartSize = cartList.length;
-    }
-}
-
-// Wishlist notification visibility.
-function wishlistNotification() {
-    var heart = document.getElementById("wishlist");
-
-    if (wishlist != null && wishlist.length > 0) {
-        heart.style.visibility = "visible";
-        heart.innerText = wishlist.length;
-    } else {
-        heart.style.visibility = "hidden";
-    }
-}
-
-// Cart notification visibility.
-function cartListNotification() {
-    var bag = document.getElementById("cart");
-    if (cartList == null || cartList.length == 0) {
-        bag.style.visibility = "hidden";
-    } else {
-        bag.style.visibility = "visible";
-        bag.innerText = cartList.length;
     }
 }
 
@@ -153,21 +115,7 @@ function getAllCartlist() {
 
 /*--------------------------------------------------------------------------------*/
 
-/* Wishlist Button functionality */
-
-// When a heart button is pressed.
-function goToWishlistPage() {
-    window.location.href = "../Shop/wishlist.html";
-}
-
-/*--------------------------------------------------------------------------------*/
-
 /* Cart Button functionality */
-
-// When a bag button is pressed.
-function goToCartPage() {
-    window.location.href = "../cart.html";
-}
 
 function cartFunc(id) {
     let url = "/api/oneShoe?id=" + id;
@@ -206,46 +154,7 @@ function showError(message) {
 
 /*--------------------------------------------------------------------------------*/
 
-/** Scrolling functionality **/
-
-// Get the elements.
-var mybutton = document.getElementById("backToTopBtn");
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-// When the user scrolls down 20px from the top of the document, show the button.
-window.onscroll = function () { scrollFunction(); stickyFunction(); };
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-}
-
-/* Back to top button */
-
-// When the user clicks on the button, scroll to the top of the document.
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-/* sticky navbar */
-
-// Stick the navbar while scrolling.
-function stickyFunction() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-        navbar.classList.remove("sticky");
-    }
-}
-
-/*--------------------------------------------------------------------------------*/
-
-/** buttons functionality **/
+/** Buttons functionality **/
 
 /* Clear all products from table */
 

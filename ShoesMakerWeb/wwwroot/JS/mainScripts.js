@@ -1,11 +1,10 @@
-﻿/* Category Buttons functionality */
+﻿/* Shop Buttons functionality */
 
-let selectedType = "";
 let pageNum = 1;
 
 // When one of the shoes type button is pressed.
 function getShoesByType(type) {
-    selectedType = type.substring(1);
+    var selectedType = type.substring(1);
     window.location.href = "../Shop/" + selectedType + ".html?pageNumber=" + pageNum;
 }
 
@@ -105,7 +104,7 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
-/* sticky navbar */
+/* Sticky navbar */
 
 // Stick the navbar while scrolling.
 function stickyFunction() {
